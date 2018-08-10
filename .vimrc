@@ -41,9 +41,9 @@ set cc=81 " Set the color column at 81
 " Color Scheme Options
 " ===============================================
 set termguicolors " needed for ayucolor to work
-" let ayucolor="light"  " for light version of theme
+let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
+" let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 " set background=dark
 " colorscheme palenight
