@@ -30,6 +30,9 @@ Plug 'w0rp/ale'
 " Access grep from vim without moving to command line
 Plug 'yegappan/grep'
 
+" SuperCollider Audio Synthesis vim integration
+Plug 'supercollider/scvim'
+
 call plug#end()
 " Global options
 " ===============================================
@@ -102,4 +105,14 @@ nmap <Space> <Plug>RDSendLine
 
 " Grep options
 :let Grep_Skip_Dirs = '.git .Rproj.user'
+
+" SuperCollider Options
+" =====================================
+" Highlight the evaluated line
+let g:scFlash = 1
+
+" On macOS, open a new terminal with iTerm
+if has('mac')
+	let g:sclangTerm = "open -n -a iTerm"
+endif
 
