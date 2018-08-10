@@ -27,6 +27,9 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 " Syntax checker for R
 Plug 'w0rp/ale'
 
+" Access grep from vim without moving to command line
+Plug 'yegappan/grep'
+
 call plug#end()
 " Global options
 " ===============================================
@@ -96,4 +99,7 @@ let R_auto_scroll = 0
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
+
+" Grep options
+:let Grep_Skip_Dirs = '.git .Rproj.user'
 
