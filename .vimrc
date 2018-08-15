@@ -21,6 +21,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " NvimR is the ESS of vim
 Plug 'jalvesaq/Nvim-R'
 
+" Plugin to work with Nvim-R that includes devtools
+Plug 'mllg/vim-devtools-plugin'
+
 " Pandoc syntax for Rmarkdown
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
@@ -44,9 +47,9 @@ set cc=81 " Set the color column at 81
 " Color Scheme Options
 " ===============================================
 set termguicolors " needed for ayucolor to work
-let ayucolor="light"  " for light version of theme
+" let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
+let ayucolor="dark"   " for dark version of theme
 colorscheme ayu
 " set background=dark
 " colorscheme palenight
@@ -97,7 +100,6 @@ let R_objbr_opendf = 0
 
 " Maybe allow scrolling?
 let R_auto_scroll = 0
-
 
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
