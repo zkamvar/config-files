@@ -12,6 +12,12 @@ Plug 'drewtempelmeyer/palenight.vim'
 " Another theme that is apparently unstable
 Plug 'ayu-theme/ayu-vim'
 
+" A muted color scheme
+Plug 'nightsense/rusticated'
+
+" Another muted color scheme that has bold colors
+Plug 'yuttie/inkstained-vim'
+
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -27,8 +33,8 @@ Plug 'mllg/vim-devtools-plugin'
 " Pandoc syntax for Rmarkdown
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-" Syntax checker for R
-Plug 'w0rp/ale'
+" Syntax checker
+Plug 'vim-syntastic/syntastic'
 
 " Access grep from vim without moving to command line
 Plug 'yegappan/grep'
@@ -43,14 +49,19 @@ set hidden " Allows for hidden buffers in the background
 set cursorline " Highlights the current line
 set number " Number all the lines
 set cc=81 " Set the color column at 81
+set tabstop=2
+set shiftwidth=2
+set expandtab
 "
 " Color Scheme Options
 " ===============================================
 set termguicolors " needed for ayucolor to work
-" let ayucolor="light"  " for light version of theme
+let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+" let ayucolor="dark"   " for dark version of theme
+colorscheme inkstained
+let g:airline_theme='rusticated'
+" colorscheme ayu
 " set background=dark
 " colorscheme palenight
 
@@ -104,6 +115,13 @@ let R_auto_scroll = 0
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
+
+" Syntastic Options
+" =====================================
+let g:syntastic_enable_r_lintr_checker = 1
+let g:syntastic_r_checkers = ['lintr']
+" warn if line lengths are just too ridiculous
+let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(120))"
 
 " Grep options
 :let Grep_Skip_Dirs = '.git .Rproj.user'
