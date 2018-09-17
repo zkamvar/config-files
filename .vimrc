@@ -6,6 +6,9 @@ Plug 'vim-airline/vim-airline'
 " Buffers are now tabs
 Plug 'fholgado/minibufexpl.vim'
 
+" Commenting lines
+Plug 'tpope/vim-commentary'
+
 " Palenight color scheme
 Plug 'drewtempelmeyer/palenight.vim'
 
