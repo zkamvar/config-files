@@ -9,6 +9,9 @@ Plug 'fholgado/minibufexpl.vim'
 " Commenting lines
 Plug 'tpope/vim-commentary'
 
+" Git for vim
+Plug 'tpope/vim-fugitive'
+
 " Palenight color scheme
 Plug 'drewtempelmeyer/palenight.vim'
 
@@ -72,13 +75,11 @@ let g:airline_theme='rusticated'
 " Italics for my favorite color scheme
 let g:palenight_terminal_italics=1
 let g:ayu_terminal_italics=1
+
 " NERD Tree options
 " ===============================================
-"
 " Mapping ctrl+n to toggle file tree
 map <c-m> :NERDTreeToggle<CR>
-" map <C-M> :NERDTreeClose<CR>
-" 
 " Show Hidden files
 let NERDTreeShowHidden=1
 
