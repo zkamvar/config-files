@@ -58,6 +58,9 @@ set cc=81 " Set the color column at 81
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" To change the hellacious CTRL-W to a much more wrist-friendly alternative
+" https://vi.stackexchange.com/a/3729/18729
+:nnoremap <Leader>w <C-w>
 "
 " Color Scheme Options
 " ===============================================
