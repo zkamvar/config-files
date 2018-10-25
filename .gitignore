@@ -1,7 +1,3 @@
-# https://stackoverflow.com/a/987162/2752888
-# Ignore Everything
-*
-
-# But not these files
-!.gitignore
-!.vimrc
+*.swp
+*~
+.DS_Store
