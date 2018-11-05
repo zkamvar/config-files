@@ -58,6 +58,8 @@ set cc=81 " Set the color column at 81
 set tabstop=2
 set shiftwidth=2
 set expandtab
+" https://stackoverflow.com/a/11560415/2752888
+set backspace=indent,eol,start  " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
 " https://vi.stackexchange.com/a/3729/18729
 :nnoremap <Leader>w <C-w>
