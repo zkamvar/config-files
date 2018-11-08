@@ -48,6 +48,9 @@ Plug 'yegappan/grep'
 " SuperCollider Audio Synthesis vim integration
 Plug 'supercollider/scvim'
 
+" Silly brick game
+Plug 'johngrib/vim-game-code-break'
+
 call plug#end()
 " Global options
 " ===============================================
