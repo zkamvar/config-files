@@ -24,6 +24,9 @@ Plug 'nightsense/rusticated'
 " Another muted color scheme that has bold colors
 Plug 'yuttie/inkstained-vim'
 
+" Nord color scheme
+Plug 'arcticicestudio/nord-vim'
+
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -74,16 +77,17 @@ set termguicolors " needed for ayucolor to work
 let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
-colorscheme inkstained
-let g:airline_theme='rusticated'
-" colorscheme ayu
-" set background=dark
-" colorscheme palenight
+" let g:airline_theme='rusticated'
+let g:nord_italic=1
+let g:nord_underline=1
+let g:nord_italic_comments=1
+let g:nord_comment_brightness=15
 
-
-" Italics for my favorite color scheme
 let g:palenight_terminal_italics=1
 let g:ayu_terminal_italics=1
+colorscheme inkstained
+
+
 
 " NERD Tree options
 " ===============================================
