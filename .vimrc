@@ -12,6 +12,9 @@ Plug 'tpope/vim-commentary'
 " Git for vim
 Plug 'tpope/vim-fugitive'
 
+" Monokai
+Plug 'patstockwell/vim-monokai-tasty'
+
 " Palenight color scheme
 Plug 'drewtempelmeyer/palenight.vim'
 
@@ -83,10 +86,11 @@ let g:nord_underline=1
 let g:nord_italic_comments=1
 let g:nord_comment_brightness=15
 
+let g:vim_monokai_tasty_italic = 1
+
 let g:palenight_terminal_italics=1
 let g:ayu_terminal_italics=1
-colorscheme inkstained
-
+colorscheme rusticated
 
 
 " NERD Tree options
