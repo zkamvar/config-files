@@ -165,13 +165,13 @@ au Filetype supercollider nnoremap <leader>m :call SendToSC('s.meter;')<CR>
 
 " Sending a block of sc code <leader>f(eans)
 au Filetype supercollider nnoremap <leader>f :call SClang_block()<CR>
-au Filetype supercollider inoremap <leader>f :call SClang_block()<CR>a
+" au Filetype supercollider inoremap <leader>f :call SClang_block()<CR>a
 au Filetype supercollider vnoremap <leader>f :call SClang_send()<CR>
 
 " Sending a single line is <Space>
 au Filetype supercollider vnoremap <buffer> <Space> :call SClang_line()<CR>
 au Filetype supercollider nnoremap <buffer> <Space> :call SClang_line()<CR>
-au Filetype supercollider inoremap <buffer> <Space> :call SClang_line()<CR>a
+" au Filetype supercollider inoremap <buffer> <Space> :call SClang_line()<CR>a
 
 " Hardstop is <leader>x
 au Filetype supercollider nnoremap <leader>x :call SClangHardstop()<CR>
