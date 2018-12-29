@@ -81,6 +81,7 @@ let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
 " let ayucolor="dark"   " for dark version of theme
 " let g:airline_theme='rusticated'
+
 let g:nord_italic=1
 let g:nord_underline=1
 let g:nord_italic_comments=1
@@ -152,6 +153,28 @@ let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(120))"
 " Highlight the evaluated line
 let g:scFlash = 1
 
+" Remap the F5 and F6 to ones that work better for my keyboard since it's kind
+" of awkward for me to type both fn and F{5,6} keys at the same time. I'm
+" copying these directly from 
+" https://github.com/supercollider/scvim/blob/master/plugin/supercollider.vim
+
+au Filetype supercollider nnoremap <leader>sc :call SClangStart()<CR>
+au Filetype supercollider nnoremap <leader>b :call SendToSC('s.boot;')<CR>
+au Filetype supercollider nnoremap <leader>t :call SendToSC('s.plotTree;')<CR>
+au Filetype supercollider nnoremap <leader>m :call SendToSC('s.meter;')<CR>
+
+" Sending a block of sc code <leader>f(eans)
+au Filetype supercollider nnoremap <leader>f :call SClang_block()<CR>
+au Filetype supercollider inoremap <leader>f :call SClang_block()<CR>a
+au Filetype supercollider vnoremap <leader>f :call SClang_send()<CR>
+
+" Sending a single line is <Space>
+au Filetype supercollider vnoremap <buffer> <Space> :call SClang_line()<CR>
+au Filetype supercollider nnoremap <buffer> <Space> :call SClang_line()<CR>
+au Filetype supercollider inoremap <buffer> <Space> :call SClang_line()<CR>a
+
+" Hardstop is <leader>x
+au Filetype supercollider nnoremap <leader>x :call SClangHardstop()<CR>
 " On macOS, open a new terminal with iTerm
 if has('mac')
 	let g:sclangTerm = "open -n -a iTerm"
