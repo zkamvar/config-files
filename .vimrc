@@ -3,6 +3,9 @@ call plug#begin("~/.vim/plugged")
 " Better status bar
 Plug 'vim-airline/vim-airline'
 
+" Themes for that status bar
+Plug 'vim-airline/vim-airline-themes'
+
 " Buffers are now tabs
 Plug 'fholgado/minibufexpl.vim'
 
@@ -11,6 +14,9 @@ Plug 'tpope/vim-commentary'
 
 " Git for vim
 Plug 'tpope/vim-fugitive'
+
+" A lot of colorschemes
+Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }
 
 " Monokai
 Plug 'patstockwell/vim-monokai-tasty'
@@ -77,10 +83,9 @@ set backspace=indent,eol,start  " more powerful backspacing
 " Color Scheme Options
 " ===============================================
 set termguicolors " needed for ayucolor to work
-let ayucolor="light"  " for light version of theme
+" let ayucolor="light"  " for light version of theme
 " let ayucolor="mirage" " for mirage version of theme
-" let ayucolor="dark"   " for dark version of theme
-" let g:airline_theme='rusticated'
+let ayucolor="dark"   " for dark version of theme
 
 let g:nord_italic=1
 let g:nord_underline=1
@@ -91,7 +96,8 @@ let g:vim_monokai_tasty_italic = 1
 
 let g:palenight_terminal_italics=1
 let g:ayu_terminal_italics=1
-colorscheme rusticated
+colorscheme earthsong
+let g:airline_theme="bubblegum"
 
 
 " NERD Tree options
