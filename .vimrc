@@ -51,9 +51,6 @@ Plug 'mllg/vim-devtools-plugin'
 " Pandoc syntax for Rmarkdown
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-" Syntax checker
-Plug 'vim-syntastic/syntastic'
-
 " Access grep from vim without moving to command line
 Plug 'yegappan/grep'
 
