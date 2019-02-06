@@ -76,6 +76,14 @@ set backspace=indent,eol,start  " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
 " https://vi.stackexchange.com/a/3729/18729
 :nnoremap <Leader>w <C-w>
+" Use Ctrl+Space to do omnicompletion:
+if has('nvim') || has('gui_running')
+   inoremap <C-Space> <C-x><C-o>
+else
+   inoremap <Nul> <C-x><C-o>
+endif
+" https://stackoverflow.com/a/33358103/2752888
+set mouse=a
 "
 " Color Scheme Options
 " ===============================================
@@ -123,10 +131,10 @@ let g:Rout_more_colors = 1
 let R_min_editor_width = 80
 
 " make sure the console is at the bottom 
-let R_rconsole_width = 0
+" let R_rconsole_width = 0
 
 " make sure the console is default of 20 lines high
-let R_rconsole_height = 20
+" let R_rconsole_height = 20
 
 " show arguments for functions during omnicompletion
 let R_show_args = 1
@@ -135,7 +143,7 @@ let R_show_args = 1
 let R_objbr_opendf = 0
 
 " Maybe allow scrolling?
-let R_auto_scroll = 0
+" let R_auto_scroll = 0
 
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
