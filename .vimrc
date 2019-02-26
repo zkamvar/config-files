@@ -101,8 +101,8 @@ let g:vim_monokai_tasty_italic = 1
 
 let g:palenight_terminal_italics=1
 let g:ayu_terminal_italics=1
-colorscheme earthsong
-let g:airline_theme="bubblegum"
+colorscheme rusticated 
+let g:airline_theme="rusticated"
 
 
 " NERD Tree options
