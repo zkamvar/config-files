@@ -101,7 +101,7 @@ let g:vim_monokai_tasty_italic = 1
 
 let g:palenight_terminal_italics=1
 let g:ayu_terminal_italics=1
-colorscheme rusticated 
+colorscheme inkstained 
 let g:airline_theme="rusticated"
 
 
