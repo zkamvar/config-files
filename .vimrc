@@ -149,12 +149,12 @@ let R_objbr_opendf = 0
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
-" Syntastic Options
-" =====================================
-let g:syntastic_enable_r_lintr_checker = 1
-let g:syntastic_r_checkers = ['lintr']
-" warn if line lengths are just too ridiculous
-let g:syntastic_r_lintr_linters = "with_defaults(line_length_linter(120))"
+" Mappings for devtools vim
+map <c-L> :RLoadPackage<CR>
+map <c-D> :RDocumentPackage<CR>
+map <c-B> :RInstallPackage<CR>
+map <c-T> :RTestPackage<CR>
+map <c-E> :RCheckPackage<CR>
 
 " Grep options
 :let Grep_Skip_Dirs = '.git .Rproj.user'
