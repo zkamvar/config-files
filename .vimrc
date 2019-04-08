@@ -101,8 +101,8 @@ let g:vim_monokai_tasty_italic = 1
 
 let g:palenight_terminal_italics=1
 let g:ayu_terminal_italics=1
-colorscheme inkstained 
-let g:airline_theme="rusticated"
+colorscheme vim-monokai-tasty 
+let g:airline_theme="monokai_tasty"
 
 
 " NERD Tree options
