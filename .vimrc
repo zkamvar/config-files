@@ -152,7 +152,6 @@ nmap <Space> <Plug>RDSendLine
 " Mappings for devtools vim
 map <c-L> :RLoadPackage<CR>
 map <c-D> :RDocumentPackage<CR>
-map <c-B> :RMakePackage<CR>
 map <c-T> :RTestPackage<CR>
 map <c-E> :RCheckPackage<CR>
 
