@@ -76,6 +76,15 @@ set backspace=indent,eol,start  " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
 " https://vi.stackexchange.com/a/3729/18729
 :nnoremap <Leader>w <C-w>
+
+" Copy to clipboard
+" https://stackoverflow.com/a/15971506/2752888
+if has('mac')
+  vnoremap <C-c> :w !pbcopy<CR><CR>
+else
+  vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
+endif
+
 " Use Ctrl+Space to do omnicompletion:
 if has('nvim') || has('gui_running')
    inoremap <C-Space> <C-x><C-o>
