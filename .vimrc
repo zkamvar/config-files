@@ -3,6 +3,9 @@ call plug#begin("~/.vim/plugged")
 " Better status bar
 Plug 'vim-airline/vim-airline'
 
+" Clock for the status bar
+Plug 'enricobacis/vim-airline-clock'
+
 " Themes for that status bar
 Plug 'vim-airline/vim-airline-themes'
 
