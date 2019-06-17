@@ -1,7 +1,7 @@
 function color_my_prompt {
     local __user_and_host="\[\033[01;32m\]\u@\h"
     local __cur_location="\[\033[01m\]\t \w"
-    local __git_branch='`git symbolic-ref HEAD --short | sed -E  s/^\(.+\)$/\(\\\\\1\)\/`'
+    local __git_branch='`git symbolic-ref HEAD --short 2> /dev/null | sed -E  s/^\(.+\)$/\(\\\\\1\)\/`'
     local __prompt_tail="$"
     local __last_color="\[\033[00m\]"
 
