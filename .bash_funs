@@ -1,0 +1,19 @@
+function doi(){ curl -LH "Accept: text/bibliography; style=bibtex" http://doi.org/$1 | sed -r -e 's/([^A-Za-z]), /\1,\n/g' | xclip -selection clipboard; }
+export -f doi
+
+# shruggie
+# Source: https://twitter.com/climagic/status/672862397015658496
+function shrug(){ echo -n "¯\_(ツ)_/¯" | xclip -selection clipboard;echo "¯\_(ツ)_/¯ copied to your clipboard"; }
+export -f shrug
+
+# strollie
+function stroll(){ echo -n "ᕕ( ᐛ )ᕗ" | xclip -selection clipboard; echo "ᕕ( ᐛ )ᕗ copied to your clipboard"; }
+export -f stroll
+
+# flippy
+function flip(){ echo -n "(╯°□°）╯︵ ┻━┻" | xclip -selection clipboard; echo "(╯°□°）╯︵ ┻━┻ copied to your clipboard"; }
+export -f flip
+
+# clone high reference
+function jkl { echo -n "(屮ﾟДﾟ)屮" | xclip -selection clipboard; echo "(屮ﾟДﾟ)屮 copied to your clipboard"; }
+export -f jkl
