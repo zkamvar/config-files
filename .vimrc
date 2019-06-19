@@ -60,8 +60,9 @@ Plug 'yegappan/grep'
 " SuperCollider Audio Synthesis vim integration
 Plug 'supercollider/scvim'
 
-" Silly brick game
-Plug 'johngrib/vim-game-code-break'
+" Aligning assignment operators
+" https://stackoverflow.com/q/16522235/2752888
+Plug 'vim-scripts/Align'
 
 call plug#end()
 " Global options
