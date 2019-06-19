@@ -1,22 +1,38 @@
+# Set up my default options
 local({
-  r <- getOption("repos")
+  r         <- getOption("repos")
   r["CRAN"] <- "https://cran.rstudio.com/"
-  options(repos = r)
+  auth      <- paste('person("Zhian N.", "Kamvar",', 
+                     'email = "zkamvar@gmail.com",', 
+                     'role = c("aut", "cre"),',
+                     'comment = c(ORCID = "0000-0003-1458-7108"))'
+                     )
+  me       <- eval(parse(text = paste0('utils::', auth)))
+  my_name  <- format(me, c('given', 'family'))
+  my_email <- format(me, c('email'), braces = list(email = ''))
+  desc     <- list(`Authors@R` = auth,
+                   License = "MIT + file LICENSE",
+                   Version = "0.0.0.9000"
+                   )
+  options(repos               = r)
+  options(usethis.full_name   = my_name)
+  options(usethis.description = desc)
+  options(usethis.protocol    = "ssh")
+  options(blogdown.author     = my_name)
+  options(blogdown.subdir     = "blog")
+  options(editor              = "vim")
 })
 
-options(blogdown.author = "Zhian N. Kamvar")
-options(blogdown.subdir = "blog")
-options(editor          = "vim")
 
 # based off of BrodieG's tinyverse version, but the notification has gotten
 # a bit noisy and cchecks seems to be fairly stable
 # 
 # I've also made some modifications to cache based on email, not just assuming
 # that it's one person
-check_cran <- function(email = "zkamvar@gmail.com", 
-                       cache = '~/.%s-R-cran-status.RDS', 
-                       cache.life = 24 * 3600
-                      ) {
+.check_cran <- function(email      = 'zkamvar@gmail.com',
+                        cache      = '~/.%s-R-cran-status.RDS',
+                        cache.life = 24 * 3600
+                       ) {
 
   cache_pat <- cache
   cache <- sprintf(cache, email)
@@ -51,5 +67,5 @@ check_cran <- function(email = "zkamvar@gmail.com",
   }
 }
 
-if(interactive()) check_cran('zkamvar@gmail.com')
+if(interactive()) .check_cran('zkamvar@gmail.com')
 
