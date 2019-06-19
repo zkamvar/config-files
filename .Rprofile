@@ -39,11 +39,44 @@ local({
   renew.cache <- TRUE
 
   display_check <- function(x, extra=NULL) {
-    print(x$data$table)
+    pkgs <- format(c('package', x$data$table$package))
+    package <- pkgs[1]
+    pkgs <- pkgs[-1]
+    oops <- x$data$table$any
+    err  <- x$data$table$error
+    wrn  <- x$data$table$warn
+    nte  <- x$data$table$note
+
+    cat(crayon::silver$bold$underline(package), 
+        crayon::cyan$bold$underline$blurred("n"),  
+        crayon::yellow$bold$underline$blurred("w"),
+        crayon::red$bold$underline$blurred("e"),
+        "\n",
+        sep = crayon::silver$underline(" ")
+       )
+    for (i in seq_along(pkgs)) {
+      e <- err[i]
+      w <- wrn[i]
+      n <- nte[i]
+      p <- pkgs[i]
+      if (oops[i]) {
+        ew <- e > 0 | w > 0
+        e  <- if (e > 0) crayon::red$bold(e) else e
+        w  <- if (w > 0) crayon::yellow(w) else w
+        n  <- if (n > 0) crayon::cyan(n) else n
+        p  <- if (ew)    crayon::bold$underline(p) else crayon::bold(p)
+      } else {
+        p <- crayon::silver(p)
+        e <- crayon::silver(e)
+        w <- crayon::silver(w)
+        n <- crayon::silver(n)
+      }
+      cat(paste(p, n, w, e, "\n"))
+    }
     err.cols <- x$data$table$warn > 0 | x$data$table$error > 0
     if(sum(as.numeric(err.cols), na.rm=TRUE))
-      writeLines(c("\033[41mErrors/Warnings Present\033[22m", x$data$url))
-    writeLines(c(extra, ""))
+      writeLines(c(crayon::bgRed("Errors/Warnings Present"), x$data$url))
+    writeLines(c(crayon::silver(extra, "")))
   }
 
 
@@ -67,5 +100,11 @@ local({
   }
 }
 
-if(interactive()) .check_cran('zkamvar@gmail.com')
+if (interactive()) {
+  .check_cran('zkamvar@gmail.com')
+
+  cat("Default R library set to", crayon::green(.libPaths()[1]), "\n")
+  
+}
+
 
