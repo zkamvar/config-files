@@ -18,6 +18,9 @@ Plug 'tpope/vim-commentary'
 " Git for vim
 Plug 'tpope/vim-fugitive'
 
+" Paper color theme
+Plug 'NLKNguyen/papercolor-theme'
+
 " A lot of colorschemes
 Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }
 
@@ -113,9 +116,12 @@ let g:nord_comment_brightness=15
 let g:vim_monokai_tasty_italic = 1
 
 let g:palenight_terminal_italics=1
+
 let g:ayu_terminal_italics=1
-colorscheme vim-monokai-tasty 
-let g:airline_theme="monokai_tasty"
+
+set background=light
+colorscheme PaperColor
+let g:airline_theme="papercolor"
 
 
 " NERD Tree options
