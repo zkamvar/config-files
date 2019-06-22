@@ -87,16 +87,16 @@ set backspace=indent,eol,start " more powerful backspacing
 " Copy to clipboard
 " https://stackoverflow.com/a/15971506/2752888
 if has('mac')
-        vnoremap <C-c> :w !pbcopy<CR><CR>
+  vnoremap <C-c> :w !pbcopy<CR><CR>
 else
-        vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
+  vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
 endif
 
 " Use Ctrl+Space to do omnicompletion:
 if has('nvim') || has('gui_running')
-        inoremap <C-Space> <C-x><C-o>
+  inoremap <C-Space> <C-x><C-o>
 else
-        inoremap <Nul> <C-x><C-o>
+  inoremap <Nul> <C-x><C-o>
 endif
 " https://stackoverflow.com/a/33358103/2752888
 set mouse=a
@@ -134,11 +134,13 @@ let NERDTreeShowHidden=1
 
 " settings :: Nvim-R plugin
 " ===============================================
+" This searches if radian (an enhanced client for R) is installed
+" https://github.com/randy3k/radian
 if executable('radian')
   let R_app = "radian"
   let R_cmd = "R"
   let R_hl_term = 0
-  let R_args = []  " if you had set any
+  let R_args = []
   let R_bracketed_paste = 1
 else
   " Default arguments on start
@@ -214,6 +216,6 @@ au Filetype supercollider nnoremap <buffer> <Space> :call SClang_line()<CR>
 au Filetype supercollider nnoremap <leader>x :call SClangHardstop()<CR>
 " On macOS, open a new terminal with iTerm
 if has('mac')
-	let g:sclangTerm = "open -n -a iTerm"
+  let g:sclangTerm = "open -n -a iTerm"
 endif
 
