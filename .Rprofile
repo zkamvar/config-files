@@ -11,8 +11,8 @@ local({
   my_name  <- format(me, c('given', 'family'))
   my_email <- format(me, c('email'), braces = list(email = ''))
   desc     <- list(`Authors@R` = auth,
-                   License = "MIT + file LICENSE",
-                   Version = "0.0.0.9000"
+                   License     = "MIT + file LICENSE",
+                   Version     = "0.0.0.9000"
                    )
   options(repos               = r)
   options(usethis.full_name   = my_name)
@@ -39,10 +39,10 @@ local({
   renew.cache <- TRUE
 
   display_check <- function(x, extra=NULL) {
-    pkgs <- format(c('package', x$data$table$package))
+    pkgs    <- format(c('package', x$data$table$package))
     package <- pkgs[1]
-    pkgs <- pkgs[-1]
-    oops <- x$data$table$any
+    pkgs    <- pkgs[-1]
+    oops    <- x$data$table$any
 
     err  <- x$data$table$error
     wrn  <- x$data$table$warn
