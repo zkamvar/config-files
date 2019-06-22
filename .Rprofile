@@ -1,4 +1,3 @@
-# Set up my default options
 local({
   r         <- getOption("repos")
   r["CRAN"] <- "https://cran.rstudio.com/"
@@ -16,12 +15,16 @@ local({
                    )
   # Setting options ------------------------------------------------------------
   options(repos                   = r)
+  options(editor                  = "vim")
+
   options(usethis.full_name       = my_name)
   options(usethis.description     = desc)
   options(usethis.protocol        = "ssh")
+
   options(blogdown.author         = my_name)
   options(blogdown.subdir         = "blog")
-  options(editor                  = "vim")
+
+  # https://github.com/randy3k/radian
   options(radian.editing_mode     = "vi")
   options(radian.auto_indentation = TRUE)
   options(radian.insert_new_line  = FALSE)
@@ -30,13 +33,16 @@ local({
   options(radian.prompt           = "\033[0;34m>\033[0m ")
   options(radian.shell_prompt     = "\033[0;31m$\033[0m ")
 
-
+  # Checking CRAN package status -----------------------------------------------
   if (interactive()) {
     # based off of BrodieG's tinyverse version, but the notification has gotten
     # a bit noisy and cchecks seems to be fairly stable
     # 
     # I've also made some modifications to cache based on email, not just
-    # assuming that it's one person
+    # assuming that it's one person.
+    #
+    # For posterity, here's the original function:
+    # https://gist.github.com/brodieG/e60c94d4036f45018530ea504258bcf3
     .check_cran <- function(email      = my_email,
                             cache      = '~/.%s-R-cran-status.RDS',
                             cache.life = 24 * 3600
