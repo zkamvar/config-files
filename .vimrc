@@ -73,11 +73,11 @@ call plug#end()
 set hidden " Allows for hidden buffers in the background
 set cursorline " Highlights the current line
 set number " Number all the lines
-set cc=81 " Set the color column at 81
-set tabstop=2
-set shiftwidth=2
 set expandtab
-set formatoptions=tcqr
+set cc            = 81 " Set the color column at 81
+set tabstop       = 2
+set shiftwidth    = 2
+set formatoptions = tcqr
 " https://stackoverflow.com/a/11560415/2752888
 set backspace=indent,eol,start  " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
@@ -103,25 +103,19 @@ set mouse=a
 "
 " Color Scheme Options
 " ===============================================
-set termguicolors " needed for ayucolor to work
-" let ayucolor="light"  " for light version of theme
-" let ayucolor="mirage" " for mirage version of theme
-let ayucolor="dark"   " for dark version of theme
+set termguicolors                " needed for ayucolor to work
+let g:nord_italic                = 1
+let g:nord_underline             = 1
+let g:nord_italic_comments       = 1
+let g:nord_comment_brightness    = 15
+let g:vim_monokai_tasty_italic   = 1
+let g:palenight_terminal_italics = 1
+let g:ayu_terminal_italics       = 1
+let ayucolor                     = "dark" " light,mirage
 
-let g:nord_italic=1
-let g:nord_underline=1
-let g:nord_italic_comments=1
-let g:nord_comment_brightness=15
-
-let g:vim_monokai_tasty_italic = 1
-
-let g:palenight_terminal_italics=1
-
-let g:ayu_terminal_italics=1
-
-set background=light
 colorscheme PaperColor
-let g:airline_theme="papercolor"
+set background                   = light
+let g:airline_theme              = "papercolor"
 
 
 " NERD Tree options
@@ -135,34 +129,34 @@ let NERDTreeShowHidden=1
 " ===============================================
 "
 " Default arguments on start
-let R_args = ['--no-save', '--no-restore']
+let R_args                    = ['--no-save', '--no-restore']
 
 " Let me have my snake case :}~~<
-let R_assign = 0
+let R_assign                  = 0
 
 " R output is highlighted with current colorscheme
 let g:rout_follow_colorscheme = 1
 "
 " R commands in R output are highlighted
-let g:Rout_more_colors = 1
+let g:Rout_more_colors        = 1
 
 " set a minimum source editor width
-let R_min_editor_width = 80
+let R_min_editor_width        = 80
 
-" make sure the console is at the bottom 
-" let R_rconsole_width = 0
+" make sure the console is at the bottom
+" let R_rconsole_width        = 0
 
 " make sure the console is default of 20 lines high
-" let R_rconsole_height = 20
+" let R_rconsole_height       = 20
 
 " show arguments for functions during omnicompletion
-let R_show_args = 1
+let R_show_args               = 1
 
 " Don't expand a dataframe to show columns by default
-let R_objbr_opendf = 0
+let R_objbr_opendf            = 0
 
 " Maybe allow scrolling?
-" let R_auto_scroll = 0
+" let R_auto_scroll           = 0
 
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
@@ -188,13 +182,13 @@ let g:scFlash = 1
 " https://github.com/supercollider/scvim/blob/master/plugin/supercollider.vim
 
 au Filetype supercollider nnoremap <leader>sc :call SClangStart()<CR>
-au Filetype supercollider nnoremap <leader>b :call SendToSC('s.boot;')<CR>
-au Filetype supercollider nnoremap <leader>t :call SendToSC('s.plotTree;')<CR>
-au Filetype supercollider nnoremap <leader>m :call SendToSC('s.meter;')<CR>
+au Filetype supercollider nnoremap <leader>b  :call SendToSC('s.boot;')<CR>
+au Filetype supercollider nnoremap <leader>t  :call SendToSC('s.plotTree;')<CR>
+au Filetype supercollider nnoremap <leader>m  :call SendToSC('s.meter;')<CR>
 
 " Sending a block of sc code <leader>f(eans)
-au Filetype supercollider nnoremap <leader>f :call SClang_block()<CR>
 " au Filetype supercollider inoremap <leader>f :call SClang_block()<CR>a
+au Filetype supercollider nnoremap <leader>f :call SClang_block()<CR>
 au Filetype supercollider vnoremap <leader>f :call SClang_send()<CR>
 
 " Sending a single line is <Space>
