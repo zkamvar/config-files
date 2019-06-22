@@ -134,9 +134,16 @@ let NERDTreeShowHidden=1
 
 " settings :: Nvim-R plugin
 " ===============================================
-"
-" Default arguments on start
-let R_args = ['--no-save', '--no-restore']
+if executable('radian')
+  let R_app = "radian"
+  let R_cmd = "R"
+  let R_hl_term = 0
+  let R_args = []  " if you had set any
+  let R_bracketed_paste = 1
+else
+  " Default arguments on start
+  let R_args = ['--no-save', '--no-restore']
+endif
 
 " Let me have my snake case :}~~<
 let R_assign = 0
