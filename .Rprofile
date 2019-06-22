@@ -34,8 +34,8 @@ local({
                         cache.life = 24 * 3600
                        ) {
 
-  cache_pat <- cache
-  cache <- sprintf(cache, email)
+  cache_pat   <- cache
+  cache       <- sprintf(cache, email)
   renew.cache <- TRUE
 
   display_check <- function(x, extra=NULL) {
@@ -44,13 +44,13 @@ local({
     pkgs    <- pkgs[-1]
     oops    <- x$data$table$any
 
-    err  <- x$data$table$error
-    wrn  <- x$data$table$warn
-    nte  <- x$data$table$note
+    err <- x$data$table$error
+    wrn <- x$data$table$warn
+    nte <- x$data$table$note
 
-    fe   <- function(i) format(i, width = nchar("errors"))
-    fw   <- function(i) format(i, width = nchar("warnings"))
-    fn   <- function(i) format(i, width = nchar("notes"))
+    fe <- function(i) format(i, width = nchar("errors"))
+    fw <- function(i) format(i, width = nchar("warnings"))
+    fn <- function(i) format(i, width = nchar("notes"))
 
     cat(crayon::silver$bold$underline(package), 
         crayon::cyan$bold$underline$blurred("notes"),  
@@ -75,10 +75,10 @@ local({
       w <- fw(w)
       e <- fe(e)
       if (oops[i]) {
-        e  <- if (ee > 0) crayon::red$bold(e) else e
-        w  <- if (we > 0) crayon::yellow(w) else w
-        n  <- if (ne > 0) crayon::cyan(n) else n
-        p  <- if (ee) crayon::bold$italic$red(p) else if (we) crayon::bold(p) else crayon::bold$silver(p)
+        e <- if (ee > 0) crayon::red$bold(e)    else e
+        w <- if (we > 0) crayon::yellow(w)      else w
+        n <- if (ne > 0) crayon::cyan(n)        else n
+        p <- if (ee) crayon::bold$italic$red(p) else if (we) crayon::bold(p) else crayon::bold$silver(p)
       } else {
         p <- crayon::silver(p)
         e <- crayon::silver(e)

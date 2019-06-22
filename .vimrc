@@ -117,6 +117,13 @@ colorscheme PaperColor
 set background=light
 let g:airline_theme="papercolor"
 
+" Alignment options
+" ===============================================
+" align arrows in R
+vnoremap <leader>tar :Align <-<CR><CR>
+" align comments in bash/r/python/etc
+vnoremap <leader>tac :Align #<CR><CR>
+
 
 " NERD Tree options
 " ===============================================
