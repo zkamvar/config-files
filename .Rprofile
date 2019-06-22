@@ -67,6 +67,8 @@ local({
             "\n",
             sep = crayon::silver$underline(" ")
            )
+        # This needs to be a for loop because we can't print the decorated
+        # output as a data frame or it will show all the escape values.
         for (i in seq_along(pkgs)) {
           e <- err[i]
           w <- wrn[i]
@@ -93,7 +95,7 @@ local({
             w <- crayon::silver(w)
             n <- crayon::silver(n)
           }
-          cat(paste(p, n, w, e, "\n"))
+          writeLines(paste(p, n, w, e))
         }
         err.cols <- err > 0 || wrn > 0
         if(sum(as.numeric(err.cols), na.rm=TRUE))
