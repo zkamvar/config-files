@@ -103,8 +103,8 @@ local({
           }
           writeLines(paste(p, n, w, e))
         }
-        err.cols <- err > 0 || wrn > 0
-        if(sum(as.numeric(err.cols), na.rm=TRUE))
+        err.cols <- err > 0 | wrn > 0
+        if (sum(as.numeric(err.cols), na.rm=TRUE))
           writeLines(c(crayon::bgRed("Errors/Warnings Present"), x$data$url))
         writeLines(c(crayon::silver(extra, "")))
       }
