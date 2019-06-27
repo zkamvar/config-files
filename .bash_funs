@@ -1,25 +1,36 @@
-function doi(){ curl -LH "Accept: text/bibliography; style=bibtex" http://doi.org/$1 | sed -r -e 's/([^A-Za-z]), /\1,\n/g' | (xclip -selection clipboard 2> /dev/null || pbcopy); }
+# Copy the bibtex entry for a given DOI
+#
+# example: 
+# $ doi 10.7717/peerj.4152
+function doi(){ curl -LH "Accept: text/bibliography; style=bibtex" http://doi.org/$1 \
+| sed -r -e 's/([^A-Za-z]), /\1,\n/g'                                                \
+| (xclip -selection clipboard 2> /dev/null || pbcopy); }
 export -f doi
 
 # shruggie
 # Source: https://twitter.com/climagic/status/672862397015658496
-function shrug(){ echo -n "¯\_(ツ)_/¯" | (xclip -selection clipboard 2> /dev/null || pbcopy) ;echo "¯\_(ツ)_/¯ copied to your clipboard"; }
+function shrug(){ echo -n "¯\_(ツ)_/¯"    \
+| (xclip -selection clipboard 2> /dev/null || pbcopy); echo "¯\_(ツ)_/¯ copied to your clipboard"; }
 export -f shrug
 
 # strollie
-function stroll(){ echo -n "ᕕ( ᐛ )ᕗ" | (xclip -selection clipboard 2> /dev/null || pbcopy); echo "ᕕ( ᐛ )ᕗ copied to your clipboard"; }
+function stroll(){ echo -n "ᕕ( ᐛ )ᕗ"      \
+| (xclip -selection clipboard 2> /dev/null || pbcopy); echo "ᕕ( ᐛ )ᕗ copied to your clipboard"; }
 export -f stroll
 
 # flippy
-function flip(){ echo -n "(╯°□°）╯︵ ┻━┻" | (xclip -selection clipboard 2> /dev/null || pbcopy); echo "(╯°□°）╯︵ ┻━┻ copied to your clipboard"; }
+function flip(){ echo -n "(╯°□°）╯︵ ┻━┻" \
+| (xclip -selection clipboard 2> /dev/null || pbcopy); echo "(╯°□°）╯︵ ┻━┻ copied to your clipboard"; }
 export -f flip
 
 # clone high reference
-function jkl { echo -n "(屮ﾟДﾟ)屮" | (xclip -selection clipboard 2> /dev/null || pbcopy); echo "(屮ﾟДﾟ)屮 copied to your clipboard"; }
+function jkl { echo -n "(屮ﾟДﾟ)屮"        \
+| (xclip -selection clipboard 2> /dev/null || pbcopy); echo "(屮ﾟДﾟ)屮 copied to your clipboard"; }
 export -f jkl
 
 # ಠ_ಠ
-function concern { echo -n "ಠ_ಠ" | (xclip -selection clipboard 2> /dev/null || pbcopy); echo "ಠ_ಠ copied to your clipboard"; }
+function concern { echo -n "ಠ_ಠ"          \
+| (xclip -selection clipboard 2> /dev/null || pbcopy); echo "ಠ_ಠ copied to your clipboard"; }
 export -f concern
 
 # quick way to view csv files
