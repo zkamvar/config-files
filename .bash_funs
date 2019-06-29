@@ -2,8 +2,8 @@
 #
 # example: 
 # $ doi 10.7717/peerj.4152
-function doi(){ curl -LH "Accept: text/bibliography; style=bibtex" http://doi.org/$1 \
-| sed -r -e 's/([^A-Za-z]), /\1,\n/g'                                                \
+function doi(){ curl -LH "Accept: text/bibliography; style=bibtex" "http://doi.org/$1" \
+| sed -r -e 's/([^A-Za-z]), /\1,\n/g'                                                  \
 | (xclip -selection clipboard 2> /dev/null || pbcopy); }
 export -f doi
 
