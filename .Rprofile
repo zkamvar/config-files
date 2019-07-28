@@ -22,7 +22,8 @@ local({
   options(usethis.protocol        = "ssh")
 
   options(blogdown.author         = my_name)
-  options(blogdown.subdir         = "blog")
+  options(blogdown.subdir         = "post")
+  options(blogdown.new_bundle     = TRUE)
 
   # https://github.com/randy3k/radian
   options(radian.editing_mode     = "vi")
