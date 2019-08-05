@@ -70,6 +70,8 @@ Plug 'supercollider/scvim'
 " https://stackoverflow.com/q/16522235/2752888
 Plug 'vim-scripts/Align'
 
+Plug 'vim-scripts/DistractFree'
+
 call plug#end()
 " Global options
 " ===============================================
@@ -127,6 +129,10 @@ vnoremap <leader>tar :Align <-<CR><CR>
 " align comments in bash/r/python/etc
 vnoremap <leader>tac :Align #<CR><CR>
 
+" DistractFree options
+" ===============================================
+
+let g:distractfree_width = '90' " 80 columns
 
 " NERD Tree options
 " ===============================================
