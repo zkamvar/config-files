@@ -112,15 +112,14 @@ set termguicolors " needed for ayucolor to work
 let g:nord_italic = 1
 let g:nord_underline = 1
 let g:nord_italic_comments = 1
-let g:nord_comment_brightness = 15
 let g:vim_monokai_tasty_italic = 1
 let g:palenight_terminal_italics = 1
 let g:ayu_terminal_italics = 1
 let ayucolor = "dark" " light,mirage
 
-colorscheme PaperColor
-set background=light
-let g:airline_theme="papercolor"
+colorscheme palenight
+set background=dark
+let g:airline_theme="palenight"
 
 " Alignment options
 " ===============================================
