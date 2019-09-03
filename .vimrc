@@ -117,9 +117,9 @@ let g:palenight_terminal_italics = 1
 let g:ayu_terminal_italics = 1
 let ayucolor = "dark" " light,mirage
 
-colorscheme palenight
+colorscheme vim-monokai-tasty
 set background=dark
-let g:airline_theme="palenight"
+let g:airline_theme="molokai"
 
 " Alignment options
 " ===============================================
