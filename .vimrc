@@ -70,14 +70,16 @@ Plug 'supercollider/scvim'
 " https://stackoverflow.com/q/16522235/2752888
 Plug 'vim-scripts/Align'
 
-Plug 'vim-scripts/DistractFree'
+" hybrid relative line numbers
+" https://jeffkreeftmeijer.com/vim-number/
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 call plug#end()
 " Global options
 " ===============================================
 set hidden " Allows for hidden buffers in the background
 set cursorline " Highlights the current line
-set number " Number all the lines
+set number relativenumber " Number all the lines relative to cursor
 set expandtab
 set cc=81 " Set the color column at 81
 set tabstop=2
