@@ -119,7 +119,7 @@ let g:palenight_terminal_italics = 1
 let g:ayu_terminal_italics = 1
 let ayucolor = "dark" " light,mirage
 
-colorscheme vim-monokai-tasty
+colorscheme PaperColor 
 set background=dark
 let g:airline_theme="molokai"
 
