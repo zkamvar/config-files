@@ -90,6 +90,10 @@ set backspace=indent,eol,start " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
 " https://vi.stackexchange.com/a/3729/18729
 :nnoremap <Leader>w <C-w>
+" Move visual selection
+" J will move lines down, K will move lines up
+vnoremap J :m '>+1<cr>gv=gv
+vnoremap K :m '<-2<cr>gv=gv
 
 " Copy to clipboard
 " https://stackoverflow.com/a/15971506/2752888
