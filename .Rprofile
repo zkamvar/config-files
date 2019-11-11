@@ -31,7 +31,9 @@ local({
   options(radian.insert_new_line  = FALSE)
   options(radian.color_scheme     = "bw")
   options(radian.tab_size         = 2)
+  # Blue arrow for R prompt
   options(radian.prompt           = "\033[0;34m>\033[0m ")
+  # Blood money for shell prompt
   options(radian.shell_prompt     = "\033[0;31m$\033[0m ")
 
   # Checking CRAN package status -----------------------------------------------
@@ -66,6 +68,10 @@ local({
         fe <- function(i) format(i, width = nchar("errors"))
         fw <- function(i) format(i, width = nchar("warnings"))
         fn <- function(i) format(i, width = nchar("notes"))
+
+        # Display the time of the update
+        tim <- as.character(parsedate::parse_iso_8601(x$data$date_updated))
+        cat(crayon::silver(sprintf("CRAN status updated: %s\n", tim)))
 
         cat(crayon::silver$bold$underline(package), 
             crayon::cyan$bold$underline$blurred("notes"),  
@@ -105,8 +111,9 @@ local({
           writeLines(paste(p, n, w, e))
         }
         err.cols <- err > 0 | wrn > 0
-        if (sum(as.numeric(err.cols), na.rm=TRUE))
+        if (sum(as.numeric(err.cols), na.rm=TRUE)) {
           writeLines(c(crayon::bgRed("Errors/Warnings Present"), x$data$url))
+        }
         writeLines(c(crayon::silver(extra, "")))
       }
 
@@ -138,7 +145,27 @@ local({
     cat("Default R library:", crayon::green(.libPaths()[1]), "\n")
     .check_cran(my_email)
     assign('.check_cran', .check_cran, env = .GlobalEnv)
-    unloadNamespace(asNamespace('crayon'))
-    unloadNamespace(asNamespace('cchecks'))
+
+    # Unload all the packages that were needed to display the header -----------
+    #
+    # This is necessary to provide a clean as possible environment
+    to_unload <- c("crayon", 
+                   "cchecks", 
+                   "parsedate", 
+                   "jsonlite",
+                   "crul", 
+                   "httpcode", 
+                   "curl", 
+                   "rematch2",
+                   "tibble", 
+                   "pkgconfig", 
+                   "pillar", 
+                   "rlang", 
+                   "R6",
+                   NULL)
+    for (package in to_unload) {
+      unloadNamespace(asNamespace(package))
+    }
+    
   }
 })
