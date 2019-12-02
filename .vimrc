@@ -170,7 +170,7 @@ let g:Rout_more_colors = 1
 let R_min_editor_width = 80
 
 " make sure the console is at the bottom
-" let R_rconsole_width = 0
+let R_rconsole_width = 80
 
 " make sure the console is default of 20 lines high
 " let R_rconsole_height = 20
