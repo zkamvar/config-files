@@ -97,8 +97,8 @@ vnoremap K :m '<-2<cr>gv=gv
 " have vim save the backups in the /tmp/ directory, remembering the
 " file path of the files
 " https://stackoverflow.com/a/4824781/2752888
-set backupdir=/tmp//
-set directory=/tmp//
+set backupdir=~/.vim/tmp//
+set directory=~/.vim/tmp//
 
 " Copy to clipboard
 " https://stackoverflow.com/a/15971506/2752888
