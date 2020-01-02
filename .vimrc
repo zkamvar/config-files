@@ -75,6 +75,7 @@ Plug 'vim-scripts/Align'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 call plug#end()
+
 " Global options
 " ===============================================
 set hidden " Allows for hidden buffers in the background
@@ -85,6 +86,8 @@ set cc=81 " Set the color column at 81
 set tabstop=2
 set shiftwidth=2
 set formatoptions=tcqr
+" Disabling background color erase for the kitty terminal
+let &t_ut=''
 " https://stackoverflow.com/a/11560415/2752888
 set backspace=indent,eol,start " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
