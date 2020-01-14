@@ -74,6 +74,12 @@ Plug 'vim-scripts/Align'
 " https://jeffkreeftmeijer.com/vim-number/
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
+" zen mode for vim
+Plug 'junegunn/goyo.vim'
+
+" dim all but current section when writing
+Plug 'junegunn/limelight.vim'
+
 call plug#end()
 
 " Global options
