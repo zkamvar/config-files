@@ -16,11 +16,9 @@ function color_my_prompt {
 
     # Set color based on clean/staged/dirty.
     if [[ ${git_status} =~ "othing to commit" ]]; then
-        #state="${GREEN}"
-	state="${LBLUE}"
+	      state="${LBLUE}"
     elif [[ ${git_status} =~ "Changes to be committed" ]]; then
-        #state="${YELLOW}":
-	state="${LPURPLE}"
+	      state="${LPURPLE}"
     else
         state="${RED}"
     fi
@@ -33,6 +31,9 @@ function color_my_prompt {
         sym="[+"${sym}"]"
     elif [[ ${git_status} =~ "branch is behind" ]]; then
         sym="[-"${sym}"]"
+    elif [[ ${git_status} =~ "HEAD detached at" ]]; then
+        __git_branch="$(echo ${git_status} | sed -E 's/HEAD detached at ([^ ]+).+?$/(🙃HEAD @ \1)/' 2> /dev/null)"
+        sym=""
     else
         sym=""
     fi
