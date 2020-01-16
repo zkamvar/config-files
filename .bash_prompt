@@ -32,7 +32,7 @@ function color_my_prompt {
     elif [[ ${git_status} =~ "branch is behind" ]]; then
         sym="[-"${sym}"]"
     elif [[ ${git_status} =~ "HEAD detached at" ]]; then
-        __git_branch="$(echo ${git_status} | sed -E 's/HEAD detached at ([^ ]+).+?$/(🙃HEAD @ \1)/' 2> /dev/null)"
+        __git_branch="$(echo ${git_status} | sed -E 's/HEAD detached at ([^ ]+).*$/(🙃HEAD @ \1)/' 2> /dev/null)"
         sym=""
     else
         sym=""
