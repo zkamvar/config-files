@@ -48,7 +48,7 @@ local({
     # https://gist.github.com/brodieG/e60c94d4036f45018530ea504258bcf3
     .check_cran <- function(email      = my_email,
                             cache      = '~/.%s-R-cran-status.RDS',
-                            cache.life = 24 #* 3600
+                            cache.life = 24 * 3600
                            ) {
 
       cache_pat   <- cache
