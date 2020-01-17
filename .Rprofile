@@ -149,10 +149,11 @@ local({
         iss <- lapply(full, "[[", c("data", "check_details", "additional_issues"))
         iss <- vapply(iss, function(.x) length(.x) > 0, logical(1))
         res$data$table$issues <- iss
-        saveRDS(list(time = Sys.time(), summary = res, full = full), cache)
+        cache.dat <- list(time = Sys.time(), summary = res, full = full)
+        saveRDS(cache.dat, cache)
         display_check(res)
       }
-      return(invisible(res))
+      return(invisible(cache.dat))
     }
 
     # Display the header at startup --------------------------------------------
