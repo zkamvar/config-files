@@ -146,15 +146,14 @@ local({
         pkgs <- res$data$packages$package
         full <- cchecks::cch_pkgs(pkgs, limit = length(pkgs))
         names(full) <- pkgs
-        iss <- purrr::map(full, c("data", "check_details", "additional_issues"))
-        iss <- purrr::map_lgl(iss, ~length(.x) > 0)
+        iss <- lapply(full, "[[", c("data", "check_details", "additional_issues"))
+        iss <- vapply(iss, function(.x) length(.x) > 0, logical(1))
         res$data$table$issues <- iss
         saveRDS(list(time = Sys.time(), summary = res, full = full), cache)
         display_check(res)
       }
       return(invisible(res))
     }
-
 
     # Display the header at startup --------------------------------------------
     cat("Default R library:", crayon::green(.libPaths()[1]), "\n")
@@ -175,8 +174,6 @@ local({
                    "tibble", 
                    "pkgconfig", 
                    "pillar", 
-                   "purrr",
-                   "magrittr",
                    "rlang", 
                    "R6",
                    "urltools",
