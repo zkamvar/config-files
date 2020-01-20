@@ -164,6 +164,13 @@ local({
     # Unload all the packages that were needed to display the header -----------
     #
     # This is necessary to provide a clean as possible environment
+    ul <- function(x, dll = getLoadedDLLs()) {
+      unloadNamespace(x)
+      if (any(names(dll) == x)) {
+        p <- dirname(dirname(dll[[x]][["path"]]))
+        library.dynam.unload(x, p)
+      }
+    }
     to_unload <- c("crayon", 
                    "cchecks", 
                    "parsedate", 
@@ -182,7 +189,7 @@ local({
                    "Rcpp",
                    NULL)
     for (package in to_unload) {
-      unloadNamespace(asNamespace(package))
+      ul(package)
     }
     
   }
