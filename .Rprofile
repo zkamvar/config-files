@@ -118,7 +118,7 @@ local({
     }
 
     print.crnchk <- function(x, cache.life = 24 * 3600, ...) {
-      cache.age <- Sys.time() - x[["time"]]
+      cache.age <- Sys.time() - x[[1]]
       cage      <- as.double(cache.age, 'secs')
 
       if (cage > 1 && cage < cache.life) {
@@ -130,7 +130,7 @@ local({
         extra <- NULL
       }
 
-      res <- x[["summary"]]
+      res <- x[[2]]
       display_check(res, extra)
     }
 
@@ -144,8 +144,9 @@ local({
       renew.cache <- TRUE
 
       if (file.exists(cache)) {
-        renew.cache <- FALSE
         cache.dat <- readRDS(cache)
+        cache.age <- Sys.time() - cache.dat[[1]]
+        renew.cache <- as.double(cache.age, 'secs') > cache.life
       }
 
       if (renew.cache) {
