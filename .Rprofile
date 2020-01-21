@@ -184,9 +184,9 @@ local({
                    "pillar", 
                    "rlang", 
                    "R6",
-                   "urltools",
-                   "triebeard",
-                   "Rcpp",
+                   # "urltools",
+                   # "triebeard",
+                   # "Rcpp",
                    NULL)
     for (package in to_unload) {
       ul(package)
