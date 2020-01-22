@@ -93,7 +93,7 @@ local({
         w <- fw(w)
         e <- fe(e)
         if (ii) {
-          ip <- crayon::red(fi("⚠"))
+          ip <- crayon::red(fi("🔥"))
         } else {
           ip <- crayon::silver(fi("✔"))
         }
