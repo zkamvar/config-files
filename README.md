@@ -17,3 +17,11 @@ if [ -f ${HOME}/.bash_prompt ]; then
 fi
 ```
 
+## .gitconfig
+
+To use the .gitconfig in your own .gitconfig, use the `[include]` directive:
+
+```toml
+[include]
+  /path/to/config-files/.gitconfig
+``` 

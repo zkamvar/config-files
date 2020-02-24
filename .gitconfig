@@ -1,6 +1,5 @@
-[user]
-	name = Zhian N. Kamvar
-	email = zkamvar@gmail.com
+[color]
+	ui = true
 [alias]
   lg = !"git lg1"
   lg1 = !"git lg1-specific --all"
@@ -11,14 +10,14 @@
     --graph \
     --abbrev-commit \
     --decorate \
-    --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(auto)%d%C(reset)'
+    --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %s %C(dim)- %an%C(reset)%C(auto)%d%C(reset)'
   lg2-specific = log \
     --graph \
     --abbrev-commit \
     --decorate \
-    --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(auto)%d%C(reset)%n''          %s %C(dim)- %an%C(reset)'
   lg3-specific = log \
     --graph \
     --decorate \
-    --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %C(white)%s%C(reset)%n''          %C(dim white)- %an <%ae> %C(reset) %C(dim white)(committer: %cn <%ce>)%C(reset)'
+    --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %s%n''          %C(dim)- %an <%ae> %C(reset) %C(dim)(committer: %cn <%ce>)%C(reset)'
   pushb = !"git push --set-upstream $(git remote | head -n 1) $(git symbolic-ref HEAD --short)"
