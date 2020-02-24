@@ -135,11 +135,11 @@ let g:nord_italic_comments = 1
 let g:vim_monokai_tasty_italic = 1
 let g:palenight_terminal_italics = 1
 let g:ayu_terminal_italics = 1
-let ayucolor = "dark" " light,mirage
+let ayucolor = "light" " dark,light,mirage
 
 colorscheme PaperColor 
-set background=dark
-let g:airline_theme="molokai"
+set background=light
+let g:airline_theme="ayu"
 
 " Alignment options
 " ===============================================
