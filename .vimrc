@@ -202,6 +202,10 @@ let R_objbr_opendf = 0
 " Maybe allow scrolling?
 " let R_auto_scroll = 0
 
+" disable annoying arg indent
+let r_indent_align_args = 0
+
+
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
