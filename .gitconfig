@@ -1,5 +1,5 @@
 [color]
-	ui = true
+  ui = true
 [alias]
   lg = !"git lg1"
   lg1 = !"git lg1-specific --all"
