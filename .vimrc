@@ -86,6 +86,9 @@ Plug 'junegunn/goyo.vim'
 " dim all but current section when writing
 Plug 'junegunn/limelight.vim'
 
+" editorconfig file support
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 " Global options
@@ -158,6 +161,11 @@ vnoremap <leader>tac :Align #<CR><CR>
 " ===============================================
 
 let g:distractfree_width = '90' " 80 columns
+
+" Editorconfig options
+" ===============================================
+" allows EditorConfig work well with fugitive
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " NERD Tree options
 " ===============================================
@@ -256,4 +264,3 @@ au Filetype supercollider nnoremap <leader>x :call SClangHardstop()<CR>
 if has('mac')
   let g:sclangTerm = "open -n -a iTerm"
 endif
-
