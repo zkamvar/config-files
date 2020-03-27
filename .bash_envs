@@ -1,3 +1,5 @@
 export BAT_THEME="Monokai Extended Light"
 alias R='R --no-save --no-restore-data'
 alias r=radian
+export VISUAL=vim
+export EDITOR="${VISUAL}"
