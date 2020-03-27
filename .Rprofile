@@ -29,6 +29,7 @@ local({
 
   # https://github.com/randy3k/radian
   options(radian.editing_mode     = "vi")
+  options(radian.show_vi_mode_prompt = FALSE)
   options(radian.auto_indentation = TRUE)
   options(radian.insert_new_line  = FALSE)
   options(radian.color_scheme     = "bw")
