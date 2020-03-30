@@ -170,37 +170,37 @@ local({
     }
 
     # Display the header at startup --------------------------------------------
-    cat("Default R library:", crayon::green(.libPaths()[1]), "\n")
-    callr::r(.check_cran, args = list(email = my_email)) -> res
-    print(res)
+    # cat("Default R library:", crayon::green(.libPaths()[1]), "\n")
+    # callr::r(.check_cran, args = list(email = my_email)) -> res
+    # print(res)
     assign('.check_cran', .check_cran, env = .GlobalEnv)
     assign('print.crnchk', print.crnchk, env = .GlobalEnv)
 
     # Unload all the packages that were needed to display the header -----------
     #
     # This is necessary to provide a clean as possible environment
-    to_unload <- c(
-      "crayon", 
-      "cchecks", 
-      "parsedate", 
-      "jsonlite",
-      "crul", 
-      "httpcode", 
-      "curl", 
-      "rematch2",
-      "tibble", 
-      "pkgconfig", 
-      "pillar", 
-      "callr",
-      "processx",
-      "ps",
-      "rlang", 
-      "R6",
-      NULL
-    )
-    for (package in to_unload) {
-      unloadNamespace(asNamespace(package))
-    }
+    # to_unload <- c(
+    #   "crayon", 
+    #   "cchecks", 
+    #   "parsedate", 
+    #   "jsonlite",
+    #   "crul", 
+    #   "httpcode", 
+    #   "curl", 
+    #   "rematch2",
+    #   "tibble", 
+    #   "pkgconfig", 
+    #   "pillar", 
+    #   "callr",
+    #   "processx",
+    #   "ps",
+    #   "rlang", 
+    #   "R6",
+    #   NULL
+    # )
+    # for (package in to_unload) {
+    #   unloadNamespace(asNamespace(package))
+    # }
     
   }
 })
