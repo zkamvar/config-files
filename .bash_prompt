@@ -1,5 +1,4 @@
-function color_my_prompt {
-    local __user_and_host="\[\033[01;32m\]\u@\h"
+function color_my_prompt { local __user_and_host="\[\033[01;32m\]\u@\h"
     local __cur_location="\[\033[01m\]\t \w"
     local __git_branch='`git symbolic-ref HEAD --short 2> /dev/null | sed -E  s/^\(.+\)$/\(\\\\\1\)\/`'
     local __prompt_tail="$"
@@ -13,6 +12,8 @@ function color_my_prompt {
 
     # Capture the output of the "git status" command.
     git_status="$(git status 2> /dev/null)"
+    # Counting how many stashes exist
+    git_stash="$(git stash list 2> /dev/null | wc -l)"
 
     # Set color based on clean/staged/dirty.
     if [[ ${git_status} =~ "othing to commit" ]]; then
@@ -37,8 +38,14 @@ function color_my_prompt {
     else
         sym=""
     fi
+    
+    if [[ ! ${git_stash} -eq 0 ]]; then
+        stash="{📦${git_stash}}"
+    else
+        stash=""
+    fi
 
-    export PS1="$__cur_location\n${state}$__git_branch${sym}$__last_color$__prompt_tail "
+    export PS1="$__cur_location\n${state}$__git_branch${sym}${stash}$__last_color$__prompt_tail "
 }
 # Tell bash to execute this function just before displaying its prompt.
 PROMPT_COMMAND=color_my_prompt
