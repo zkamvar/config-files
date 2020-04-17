@@ -7,6 +7,12 @@ local({
     'role = c("aut", "cre"),',
     'comment = c(ORCID = "0000-0003-1458-7108"))'
   )
+  # Github Personal Access Token. Download the token into a plaintext file
+  # called ~/.github_pat and set the permissions to read only by your user
+  # fs::file_chmod("~/.github_pat", "600")
+  if (file.exists("~/.github_pat")) {
+    Sys.setenv(GITHUB_PAT = readLines("~/.github_pat")[[1]])
+  }
   me       <- eval(parse(text = paste0('utils::', auth)))
   my_name  <- format(me, c('given', 'family'))
   my_email <- format(me, c('email'), braces = list(email = ''))
