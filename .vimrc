@@ -201,12 +201,12 @@ let g:Rout_more_colors = 1
 " set a minimum source editor width
 let R_min_editor_width = 80
 
+" set the working directory to be vim's working directory
+let R_nvim_wd = 1
+
 " make sure the console is at the bottom
 let R_rconsole_width = winwidth(0) / 2
 autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
-
-" make sure the console is default of 20 lines high
-" let R_rconsole_height = 20
 
 " show arguments for functions during omnicompletion
 let R_show_args = 1
@@ -214,12 +214,8 @@ let R_show_args = 1
 " Don't expand a dataframe to show columns by default
 let R_objbr_opendf = 0
 
-" Maybe allow scrolling?
-" let R_auto_scroll = 0
-
 " disable annoying arg indent
 let r_indent_align_args = 0
-
 
 " Press the space bar to send lines and selection to R console
 vmap <Space> <Plug>RDSendSelection
