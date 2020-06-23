@@ -54,6 +54,13 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Add git flags to nerdtree
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+" Add git gutter to files
+if has('nvim') || has('patch-8.0.902')
+  Plug 'mhinz/vim-signify'
+else
+  Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
+
 " NvimR is the ESS of vim
 Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 
