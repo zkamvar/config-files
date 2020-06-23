@@ -168,7 +168,7 @@ vnoremap <leader>tac :Align #<CR><CR>
 " ===============================================
 if has('nvim') || has('patch-8.0.902')
   set updatetime=100
-else
+endif
 
 " DistractFree options
 " ===============================================
