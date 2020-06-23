@@ -164,6 +164,12 @@ vnoremap <leader>tar :Align <-<CR><CR>
 " align comments in bash/r/python/etc
 vnoremap <leader>tac :Align #<CR><CR>
 
+" vim-signify options
+" ===============================================
+if has('nvim') || has('patch-8.0.902')
+  set updatetime=100
+else
+
 " DistractFree options
 " ===============================================
 
