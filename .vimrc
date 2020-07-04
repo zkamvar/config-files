@@ -270,7 +270,3 @@ au Filetype supercollider nnoremap <buffer> <Space> :call SClang_line()<CR>
 
 " Hardstop is <leader>x
 au Filetype supercollider nnoremap <leader>x :call SClangHardstop()<CR>
-" On macOS, open a new terminal with iTerm
-if has('mac')
-  let g:sclangTerm = "open -n -a iTerm"
-endif
