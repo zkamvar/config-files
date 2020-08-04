@@ -183,6 +183,10 @@ let g:distractfree_width = '90' " 80 columns
 " allows EditorConfig work well with fugitive
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
+" context.vim options
+" ===============================================
+let g:context_add_mappings = 0
+
 " NERD Tree options
 " ===============================================
 " Mapping ctrl+n to toggle file tree
