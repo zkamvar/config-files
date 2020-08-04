@@ -87,6 +87,9 @@ Plug 'vim-scripts/Align'
 " https://jeffkreeftmeijer.com/vim-number/
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
+" context-aware scrolling for looooong nested elements
+Plug 'wellle/context.vim'
+
 " zen mode for vim
 Plug 'junegunn/goyo.vim'
 
