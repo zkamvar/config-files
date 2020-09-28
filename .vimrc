@@ -228,9 +228,6 @@ let R_nvim_wd = 1
 let R_rconsole_width = winwidth(0) / 2
 autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 
-" show arguments for functions during omnicompletion
-let R_show_args = 1
-
 " Don't expand a dataframe to show columns by default
 let R_objbr_opendf = 0
 
