@@ -112,7 +112,7 @@ set tabstop=2
 set shiftwidth=2
 set formatoptions=tcqr
 " Disabling background color erase for the kitty terminal
-let &t_ut=''
+" let &t_ut=''
 " https://stackoverflow.com/a/11560415/2752888
 set backspace=indent,eol,start " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
@@ -155,9 +155,18 @@ let g:vim_monokai_tasty_italic = 1
 let g:palenight_terminal_italics = 1
 let g:ayu_terminal_italics = 1
 let ayucolor = "light" " dark,light,mirage
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1,
+  \       'allow_bold': 1,
+  \       'allow_italic': 1,
+  \     }
+  \   }
+  \ }
 
 colorscheme PaperColor 
-set background=light
+set background=dark
 let g:airline_theme="ayu"
 
 " Alignment options
