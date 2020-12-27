@@ -166,7 +166,7 @@ let g:PaperColor_Theme_Options = {
   \ }
 
 colorscheme PaperColor 
-set background=dark
+set background=light
 let g:airline_theme="ayu"
 
 " Alignment options
