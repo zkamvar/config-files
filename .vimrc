@@ -99,6 +99,9 @@ Plug 'junegunn/limelight.vim'
 " editorconfig file support
 Plug 'editorconfig/editorconfig-vim'
 
+" View ANSI colors in vim
+Plug 'chrisbra/Colorizer'
+
 call plug#end()
 
 " Global options
