@@ -27,27 +27,6 @@ Plug 'tpope/vim-fugitive'
 " Paper color theme
 Plug 'NLKNguyen/papercolor-theme'
 
-" A lot of colorschemes
-Plug 'daylerees/colour-schemes', { 'rtp': 'vim' }
-
-" Monokai
-Plug 'patstockwell/vim-monokai-tasty'
-
-" Palenight color scheme
-Plug 'drewtempelmeyer/palenight.vim'
-
-" Another theme that is apparently unstable
-Plug 'ayu-theme/ayu-vim'
-
-" A muted color scheme
-Plug 'nightsense/rusticated'
-
-" Another muted color scheme that has bold colors
-Plug 'yuttie/inkstained-vim'
-
-" Nord color scheme
-Plug 'arcticicestudio/nord-vim'
-
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -102,6 +81,9 @@ Plug 'editorconfig/editorconfig-vim'
 " View ANSI colors in vim
 Plug 'chrisbra/Colorizer'
 
+" Indentation guides
+Plug 'nathanaelkane/vim-indent-guides'
+
 call plug#end()
 
 " Global options
@@ -151,13 +133,8 @@ set mouse=a
 " Color Scheme Options
 " ===============================================
 set termguicolors " needed for ayucolor to work
-let g:nord_italic = 1
-let g:nord_underline = 1
-let g:nord_italic_comments = 1
-let g:vim_monokai_tasty_italic = 1
-let g:palenight_terminal_italics = 1
-let g:ayu_terminal_italics = 1
-let ayucolor = "light" " dark,light,mirage
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default': {
