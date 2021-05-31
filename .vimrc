@@ -145,9 +145,29 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 
-colorscheme PaperColor 
-set background=light
+" ChangeBackground changes the background mode based on macOS's `Appearance`
+" setting. We also refresh the statusline colors to reflect the new mode.
+function! ChangeBackground()
+  if system("kitty @ get-colors | grep '^foreground '") =~ '414141'
+    set background=light  " for the light version of the theme
+  else
+    set background=dark   " for the dark version of the theme
+  endif
+  colorscheme PaperColor
+
+  try
+    execute "AirlineRefresh"
+  catch
+  endtry
+endfunction
+
 let g:airline_theme="papercolor"
+" initialize the colorscheme for the first run
+call ChangeBackground()
+
+" change the color scheme if we receive a SigUSR1
+autocmd SigUSR1 * call ChangeBackground()
+
 
 " Alignment options
 " ===============================================
