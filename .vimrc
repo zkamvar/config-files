@@ -166,7 +166,7 @@ let g:airline_theme="papercolor"
 call ChangeBackground()
 
 " change the color scheme if we receive a SigUSR1
-autocmd SigUSR1 * call ChangeBackground()
+" autocmd SigUSR1 * call ChangeBackground()
 
 
 " Alignment options
