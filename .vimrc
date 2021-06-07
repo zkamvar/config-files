@@ -88,13 +88,15 @@ call plug#end()
 set hidden " Allows for hidden buffers in the background
 set cursorline " Highlights the current line
 set number relativenumber " Number all the lines relative to cursor
-set expandtab
+set expandtab " Use spaces for tabs
 set cc=81 " Set the color column at 81
 set tabstop=2
 set shiftwidth=2
-set formatoptions=tcqr
-" Disabling background color erase for the kitty terminal
-" let &t_ut=''
+set formatoptions=tcqr 
+    " t auto-wrap text
+    " c auto-wrap commetns
+    " q allow comments to wrap
+    " r auto-continue comment lines
 " https://stackoverflow.com/a/11560415/2752888
 set backspace=indent,eol,start " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
@@ -165,6 +167,12 @@ call ChangeBackground()
 " change the color scheme if we receive a SigUSR1
 " autocmd SigUSR1 * call ChangeBackground()
 
+" Airline options
+" ===============================================
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#clock#format = '%b %d %H:%M:%S'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 " Alignment options
 " ===============================================
