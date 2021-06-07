@@ -15,9 +15,6 @@ Plug 'enricobacis/vim-airline-clock'
 " Themes for that status bar
 Plug 'vim-airline/vim-airline-themes'
 
-" Buffers are now tabs
-Plug 'fholgado/minibufexpl.vim'
-
 " Commenting lines
 Plug 'tpope/vim-commentary'
 
