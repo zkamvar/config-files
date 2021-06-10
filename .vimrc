@@ -92,7 +92,7 @@ set expandtab " Use spaces for tabs
 set cc=81 " Set the color column at 81
 set tabstop=2
 set shiftwidth=2
-set formatoptions=tcqr 
+set formatoptions=tcqr
     " t auto-wrap text
     " c auto-wrap commetns
     " q allow comments to wrap
@@ -283,7 +283,7 @@ let g:scFlash = 1
 
 " Remap the F5 and F6 to ones that work better for my keyboard since it's kind
 " of awkward for me to type both fn and F{5,6} keys at the same time. I'm
-" copying these directly from 
+" copying these directly from
 " https://github.com/supercollider/scvim/blob/master/plugin/supercollider.vim
 
 au Filetype supercollider nnoremap <leader>sc :call SClangStart()<CR>
