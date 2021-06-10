@@ -99,7 +99,7 @@ set formatoptions=tcqr
     " r auto-continue comment lines
 " https://stackoverflow.com/a/11560415/2752888
 set list " Display unprintable characters f12 - switches
-set listchars=eol:$,tab:<->,trail:•,extends:»,precedes:« " Unprintable chars mapping
+set listchars=tab:<->,trail:•,extends:»,precedes:« " Unprintable chars mapping
 set backspace=indent,eol,start " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
 " https://vi.stackexchange.com/a/3729/18729
@@ -130,6 +130,16 @@ else
 endif
 " https://stackoverflow.com/a/33358103/2752888
 set mouse=a
+
+" Airline options
+" ===============================================
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#clock#format = '%b%d %H:%M'
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+let g:airline#extensions#wordcount#formatter#default#fmt = 'W:%s'
+let g:airline#extensions#wordcount#formatter#default#fmt_short = 'W:%s'
 "
 " Color Scheme Options
 " ===============================================
@@ -169,12 +179,6 @@ call ChangeBackground()
 " change the color scheme if we receive a SigUSR1
 " autocmd SigUSR1 * call ChangeBackground()
 
-" Airline options
-" ===============================================
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#clock#format = '%b %d %H:%M:%S'
-let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 " Alignment options
 " ===============================================
