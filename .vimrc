@@ -98,6 +98,8 @@ set formatoptions=tcqr
     " q allow comments to wrap
     " r auto-continue comment lines
 " https://stackoverflow.com/a/11560415/2752888
+set list " Display unprintable characters f12 - switches
+set listchars=eol:$,tab:<->,trail:•,extends:»,precedes:« " Unprintable chars mapping
 set backspace=indent,eol,start " more powerful backspacing
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
 " https://vi.stackexchange.com/a/3729/18729
