@@ -158,6 +158,13 @@ let g:PaperColor_Theme_Options = {
 
 " ChangeBackground changes the background mode based on macOS's `Appearance`
 " setting. We also refresh the statusline colors to reflect the new mode.
+function! SyncSignColumn()
+  let sccolor = system("(kitty @ get-colors | grep '^background ' | sed -e 's/^background *'//) || echo NONE")
+  if sccolor != 'NONE'
+    execute 'highlight SignColumn guibg='.sccolor
+  endif
+endfunction
+
 function! ChangeBackground()
   if system("(kitty @ get-colors | grep '^foreground ') || echo NONE") =~ '414141'
     set background=light  " for the light version of the theme
@@ -168,6 +175,10 @@ function! ChangeBackground()
 
   try
     execute "AirlineRefresh"
+  catch
+  endtry
+  try
+    call SyncSignColumn()
   catch
   endtry
 endfunction
@@ -193,14 +204,6 @@ if has('nvim') || has('patch-8.0.902')
   set updatetime=100
 endif
 
-function! SyncSignColumn()
-  let sccolor = system("(kitty @ get-colors | grep '^background ' | sed -e 's/^background *'//) || echo NONE")
-  if sccolor != 'NONE'
-    execute 'highlight SignColumn guibg='.sccolor
-  endif
-endfunction
-
-call SyncSignColumn()
 
 " DistractFree options
 " ===============================================
