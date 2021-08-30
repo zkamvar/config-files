@@ -274,6 +274,7 @@ nmap <Space> <Plug>RDSendLine
 map <c-L> :RLoadPackage<CR>
 map <c-D> :RDocumentPackage<CR>
 map <c-T> :RTestPackage<CR>
+map <c-F> :call devtools#test_file()<CR>
 map <c-E> :RCheckPackage<CR>
 
 " Grep options
