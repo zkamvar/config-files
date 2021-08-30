@@ -270,11 +270,22 @@ let r_indent_align_args = 0
 vmap <Space> <Plug>RDSendSelection
 nmap <Space> <Plug>RDSendLine
 
+" Switch between file and test
+function! SwitchTestBuddy()
+  let f = expand('%:t')
+  if expand('%:p:h:t') == 'testthat'
+    execute ':edit R/'..substitute(f, 'test-', '', '')
+  else
+    execute ':edit tests/testthat/test-'..f
+  endif
+endfunction
+
 " Mappings for devtools vim
 map <c-L> :RLoadPackage<CR>
 map <c-D> :RDocumentPackage<CR>
 map <c-T> :RTestPackage<CR>
-map <C-I> :call devtools#test_file()<CR>
+map <c-I> :call devtools#test_file()<CR>
+map <c-O> :call SwitchTestBuddy()<CR>
 map <c-E> :RCheckPackage<CR>
 
 " Grep options
