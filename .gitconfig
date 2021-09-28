@@ -6,9 +6,9 @@
   ui = true
 [alias]
   lg = !"git lg1"
-  lg1 = !"git lg1-specific --all"
-  lg2 = !"git lg2-specific --all"
-  lg3 = !"git lg3-specific --all"
+  lg1 = !"git lg1-specific --exclude=*/md-outputs* --exclude=*/gh-pages --all"
+  lg2 = !"git lg2-specific --exclude=*/md-outputs* --exclude=*/gh-pages --all"
+  lg3 = !"git lg3-specific --exclude=*/md-outputs* --exclude=*/gh-pages --all"
 
   lg1-specific = log \
     --graph \
