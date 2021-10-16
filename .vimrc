@@ -43,9 +43,6 @@ Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
 " Plugin to work with Nvim-R that includes devtools
 Plug 'mllg/vim-devtools-plugin'
 
-" Gives me auto documentation with <leader>d
-Plug 'kkoomen/vim-doge'
-
 " Pandoc syntax for Rmarkdown
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
