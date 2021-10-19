@@ -27,7 +27,7 @@ local({
 
   options(usethis.full_name           = my_name)
   options(usethis.description         = desc)
-  options(usethis.protocol            = "ssh")
+  options(usethis.protocol            = "https")
 
   options(testthat.progress.max_fails = Inf)
 
