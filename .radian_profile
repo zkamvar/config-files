@@ -5,11 +5,7 @@ options(radian.auto_indentation     = TRUE)
 options(radian.insert_new_line      = FALSE)
 options(radian.color_scheme         = "bw")
 options(radian.tab_size             = 2)
-# Blue arrow for R prompt
-options(radian.prompt               = "\033[0;34m>\033[0m ")
+# Blue arrow for R prompt, but label if we are in {renv}
+options(radian.prompt               = if (getOption("renv.consent", FALSE)) "\033[0;34mr$>\033[0m " else "\033[0;34m>\033[0m ")
 # Blood money for shell prompt
 options(radian.shell_prompt         = "\033[0;31m$\033[0m ")
-
-options(radian.show_vi_mode_prompt = TRUE)
-options(radian.vi_mode_prompt      = "\033[0;34m[{}]\033[0m\n")
-
