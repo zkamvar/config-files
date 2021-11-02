@@ -35,18 +35,6 @@ local({
   options(blogdown.subdir             = "post")
   options(blogdown.new_bundle         = TRUE)
 
-  # https://github.com/randy3k/radian
-  options(radian.editing_mode         = "vi")
-  options(radian.show_vi_mode_prompt  = FALSE)
-  options(radian.auto_indentation     = TRUE)
-  options(radian.insert_new_line      = FALSE)
-  options(radian.color_scheme         = "bw")
-  options(radian.tab_size             = 2)
-  # Blue arrow for R prompt
-  options(radian.prompt               = "\033[0;34m>\033[0m ")
-  # Blood money for shell prompt
-  options(radian.shell_prompt         = "\033[0;31m$\033[0m ")
-
   # Checking CRAN package status -----------------------------------------------
   #if (interactive()) {
   #  # based off of BrodieG's tinyverse version, but the notification has gotten
