@@ -25,3 +25,7 @@ To use the .gitconfig in your own .gitconfig, use the `[include]` directive:
 [include]
   /path/to/config-files/.gitconfig
 ``` 
+
+## kitty
+
+The kitty config is put in `~/.config/kitty/`
