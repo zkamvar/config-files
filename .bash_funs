@@ -46,3 +46,7 @@ function getnotes { curl -L https://api.github.com/repos/zkamvar/notes-template/
 --exclude=.gitignore; }
 export -f getnotes
 
+# set theme
+function theme { KITTY_CONFIG_DIRECTORY="${2:-~/.config/kitty/ignore/}" kitty +kitten themes ${1}; }
+export -f theme
+
