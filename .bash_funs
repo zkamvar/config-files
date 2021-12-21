@@ -47,7 +47,9 @@ function getnotes { curl -L https://api.github.com/repos/zkamvar/notes-template/
 export -f getnotes
 
 # set theme
-function theme { KITTY_CONFIG_DIRECTORY="${2:-~/.config/kitty/ignore/}" kitty +kitten themes ${1}; }
+function theme() { 
+  kitty +kitten themes --dump-theme ${1} > ~/.config/kitty/theme.conf 
+}
 export -f theme
 
 function black_cat () {
