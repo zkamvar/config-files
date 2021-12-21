@@ -165,7 +165,7 @@ function! SyncSignColumn()
 endfunction
 
 function! ChangeBackground()
-  if system("(kitty @ get-colors | grep '^foreground ') || echo NONE") =~ '444444'
+  if system("black_cat") =~ '1'
     set background=light  " for the light version of the theme
   else
     set background=dark   " for the dark version of the theme

@@ -50,21 +50,41 @@ export -f getnotes
 function theme { KITTY_CONFIG_DIRECTORY="${2:-~/.config/kitty/ignore/}" kitty +kitten themes ${1}; }
 export -f theme
 
-function hex2rgb () {
-  hex="${1/\#/}" # remove leading hash
-  printf "${hex}\n"
-  r=0x${hex:0:2}
-  g=0x${hex:2:2}
-  b=0x${hex:4:2}
-  printf "%d %d %d\n" ${r} ${g} ${b}
+function black_cat () {
+  local bg=$( kitty @ get-colors | grep '^background' | awk '{print $2}' )
+  echo "$( luminance ${bg} ) > 0.228" | bc -l
 }
+export -f black_cat
 
+# https://stackoverflow.com/a/56678483/2752888
 function luminance () {
-  v=$( echo "${1}/255" | bc -l )
-  if [ $( echo "${v} < 0.03298" | bc -l ) -eq 1 ]; then
+  local hex="${1/\#/}" # remove leading hash
+  local r=$( sRGBtoLIN ${hex:0:2} )
+  local g=$( sRGBtoLIN ${hex:2:2} )
+  local b=$( sRGBtoLIN ${hex:4:2} )
+  echo "${r} * 0.2126 + ${g} * 0.7152 + ${b} * 0.0722" | bc -l
+}
+export -f luminance
+
+
+function sRGBtoLIN () {
+  # convert hex to decimal
+  local in=$((16#${1}))
+  # convert to fraction
+  local v=$( echo "${in}/255" | bc -l )
+  # linearize based on perception threshold.
+  if [ $( echo "${v} < 0.04045" | bc -l ) -eq 1 ]; then
      v=$(echo "${v}/12.92" | bc -l)
   else
-     v=$( echo "((${v} + 0.055)/1.055)^2" | bc -l )
+     # bc gives a weird warning of "non-zero scale in exponent" when trying to
+     # parse a decimal or negative exponent. The solution is:
+     #
+     # e(l(2) * 2.5) == 2^2.5
+     #
+     # I would link the page I got it from but yeesh, there was a banner that
+     # was espousing conspiracy theories
+     v=$( echo "e(l((${v} + 0.055)/1.055) * 2.4)" | bc -l )
   fi
   echo "$v"
 }
+export -f sRGBtoLIN
