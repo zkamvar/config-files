@@ -50,3 +50,21 @@ export -f getnotes
 function theme { KITTY_CONFIG_DIRECTORY="${2:-~/.config/kitty/ignore/}" kitty +kitten themes ${1}; }
 export -f theme
 
+function hex2rgb () {
+  hex="${1/\#/}" # remove leading hash
+  printf "${hex}\n"
+  r=0x${hex:0:2}
+  g=0x${hex:2:2}
+  b=0x${hex:4:2}
+  printf "%d %d %d\n" ${r} ${g} ${b}
+}
+
+function luminance () {
+  v=$( echo "${1}/255" | bc -l )
+  if [ $( echo "${v} < 0.03298" | bc -l ) -eq 1 ]; then
+     v=$(echo "${v}/12.92" | bc -l)
+  else
+     v=$( echo "((${v} + 0.055)/1.055)^2" | bc -l )
+  fi
+  echo "$v"
+}
