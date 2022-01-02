@@ -48,6 +48,9 @@ Every time I changed the theme, my kitty conf would be changed in git's eyes.
 filters](https://stackoverflow.com/a/5272721/2752888) which would act on the
 `kitty/kitty.conf` file by removing those lines alltogether:
 
+> BIG CAVEAT: This must be done on each computer separately. The git
+> configuration is not replicated across computers.
+
 In `.git/config`
 
 ```
