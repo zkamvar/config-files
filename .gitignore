@@ -6,3 +6,5 @@
 .Rdata
 .httr-oauth
 kitty/ignore/*
+kitty/*bak
+kitty/current-theme.conf

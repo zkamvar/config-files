@@ -48,7 +48,7 @@ export -f getnotes
 
 # set theme
 function theme() { 
-  kitty +kitten themes --dump-theme ${1} > ~/.config/kitty/current-theme.conf
+  kitty @ kitten themes --dump-theme ${1} > ~/.config/kitty/current-theme.conf
   kitty @ set-colors --all ~/.config/kitty/current-theme.conf
 }
 export -f theme
