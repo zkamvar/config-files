@@ -29,3 +29,35 @@ To use the .gitconfig in your own .gitconfig, use the `[include]` directive:
 ## kitty
 
 The kitty config is put in `~/.config/kitty/`
+
+### Changing colors
+
+I previously had some keyboard mappings to change colors in kitty, but it got
+more complicated with [the themes kitten](https://sw.kovidgoyal.net/kitty/kittens/themes/) 
+where it would modify the `kitty/kitty.conf` file to include the following lines:
+
+```
+# BEGIN_KITTY_THEME
+# <theme name>
+include current-theme.conf
+# END_KITTY_THEME
+```
+
+Every time I changed the theme, my kitty conf would be changed in git's eyes.
+[The way I rectified this was to use git
+filters](https://stackoverflow.com/a/5272721/2752888) which would act on the
+`kitty/kitty.conf` file by removing those lines alltogether:
+
+In `.git/config`
+
+```
+[filter "badkitty"]
+  clean=sed '/BEGIN_KITTY_THEME/,/END_KITTY_THEME/ d'
+  smudge=sed '/BEGIN_KITTY_THEME/,/END_KITTY_THEME/ d'
+```
+
+In `.git/info/attributes`
+
+```
+kitty/kitty.conf filter=badkitty
+```
