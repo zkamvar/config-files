@@ -38,7 +38,7 @@ else
 endif
 
 " NvimR is the ESS of vim
-Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
+Plug 'jalvesaq/Nvim-R' ", {'branch': 'stable'}
 
 " Plugin to work with Nvim-R that includes devtools
 Plug 'mllg/vim-devtools-plugin'
