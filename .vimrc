@@ -46,9 +46,6 @@ Plug 'mllg/vim-devtools-plugin'
 " Pandoc syntax for Rmarkdown
 Plug 'vim-pandoc/vim-pandoc-syntax'
 
-" Access grep from vim without moving to command line
-Plug 'yegappan/grep'
-
 " SuperCollider Audio Synthesis vim integration
 Plug 'supercollider/scvim'
 
@@ -289,6 +286,10 @@ map <c-E> :RCheckPackage<CR>
 
 " Grep options
 :let Grep_Skip_Dirs = '.git .Rproj.user'
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+  set grepformat=%f:%l:%c:%m
+endif
 
 " SuperCollider Options
 " =====================================
