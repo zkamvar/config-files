@@ -218,7 +218,7 @@ let g:context_add_mappings = 0
 " NERD Tree options
 " ===============================================
 " Mapping ctrl+n to toggle file tree
-map <c-m> :NERDTreeToggle<CR>
+map <cr> :NERDTreeToggle<CR>
 " Show Hidden files
 let NERDTreeShowHidden=1
 
@@ -280,7 +280,7 @@ endfunction
 map <c-L> :RLoadPackage<CR>
 map <c-D> :RDocumentPackage<CR>
 map <c-T> :RTestPackage<CR>
-map <c-I> :call devtools#test_file()<CR>
+map <tab> :call devtools#test_file()<CR>
 map <c-O> :call SwitchTestBuddy()<CR>
 map <c-E> :RCheckPackage<CR>
 
