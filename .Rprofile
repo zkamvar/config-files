@@ -23,7 +23,7 @@ local({
   )
   # Setting options ------------------------------------------------------------
   options(repos                       = r)
-  options(editor                      = "vim")
+  options(editor                      = "nvim")
 
   options(usethis.full_name           = my_name)
   options(usethis.description         = desc)
