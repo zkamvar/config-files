@@ -1,7 +1,17 @@
 local({
-  r         <- getOption("repos")
-  r["CRAN"] <- "https://cran.rstudio.com/"
-  auth      <- paste(
+  r <- getOption("repos")
+  r <- r[!names(r) %in% c("RSPM", "CRAN")]
+  r <- c(
+    RSPM = "https://packagemanager.rstudio.com/all/__linux__/focal/latest",
+    CRAN = "https://cran.rstudio.com/",
+    carpentries = "https://carpentries.r-universe.dev",
+    r)
+  # Set the default HTTP user agent
+  HUA = sprintf("R/%s R (%s)", 
+    getRversion(), 
+    paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])
+  )
+  auth <- paste(
     'person("Zhian N.", "Kamvar",', 
     'email = "zkamvar@gmail.com",', 
     'role = c("aut", "cre"),',
@@ -22,18 +32,19 @@ local({
     Version     = "0.0.0.9000"
   )
   # Setting options ------------------------------------------------------------
-  options(repos                       = r)
-  options(editor                      = "nvim")
+  options(repos         = r)
+  options(HTTPUserAgent = HUA)
+  options(editor        = "nvim")
 
-  options(usethis.full_name           = my_name)
-  options(usethis.description         = desc)
-  options(usethis.protocol            = "https")
+  options(usethis.full_name   = my_name)
+  options(usethis.description = desc)
+  options(usethis.protocol    = "https")
 
   options(testthat.progress.max_fails = Inf)
 
-  options(blogdown.author             = my_name)
-  options(blogdown.subdir             = "post")
-  options(blogdown.new_bundle         = TRUE)
+  options(blogdown.author     = my_name)
+  options(blogdown.subdir     = "post")
+  options(blogdown.new_bundle = TRUE)
 
   # Checking CRAN package status -----------------------------------------------
   #if (interactive()) {
