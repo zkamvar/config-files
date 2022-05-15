@@ -1,8 +1,9 @@
 local({
   r <- getOption("repos")
   r <- r[!names(r) %in% c("RSPM", "CRAN")]
+  on_mac <- Sys.info()[["sysname"]] == "Darwin"
   r <- c(
-    RSPM = "https://packagemanager.rstudio.com/all/__linux__/focal/latest",
+    if (!on_mac) RSPM = "https://packagemanager.rstudio.com/all/__linux__/focal/latest",
     CRAN = "https://cran.rstudio.com/",
     carpentries = "https://carpentries.r-universe.dev",
     r)
