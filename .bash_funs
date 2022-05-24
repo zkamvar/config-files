@@ -48,13 +48,13 @@ export -f getnotes
 
 # set theme
 function theme() { 
-  kitty @ kitten themes --dump-theme ${1} > ~/.config/kitty/current-theme.conf
-  kitty @ set-colors --all ~/.config/kitty/current-theme.conf
+  kitty @ --to=$KITTY_LISTEN_ON kitten themes --dump-theme ${1} > ~/.config/kitty/current-theme.conf
+  kitty @ --to=$KITTY_LISTEN_ON set-colors --all ~/.config/kitty/current-theme.conf
 }
 export -f theme
 
 function black_cat () {
-  local bg=$( kitty @ get-colors | grep '^background' | awk '{print $2}' )
+  local bg=$( kitty --to=$KITTY_LISTEN_ON @ get-colors | grep '^background' | awk '{print $2}' )
   echo "$( luminance ${bg} ) > 0.228" | bc -l
 }
 export -f black_cat
