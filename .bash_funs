@@ -54,7 +54,7 @@ function theme() {
 export -f theme
 
 function black_cat () {
-  local bg=$( kitty --to=$KITTY_LISTEN_ON @ get-colors | grep '^background' | awk '{print $2}' )
+  local bg=$( kitty @ --to=$KITTY_LISTEN_ON get-colors | grep '^background' | awk '{print $2}' )
   echo "$( luminance ${bg} ) > 0.228" | bc -l
 }
 export -f black_cat
