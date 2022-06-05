@@ -179,7 +179,7 @@ function! ChangeBackground()
   endtry
 endfunction
 
-let g:airline_theme="papercolor"
+let g:airline_theme="sol"
 " initialize the colorscheme for the first run
 call ChangeBackground()
 
