@@ -2,5 +2,6 @@ export BAT_THEME="Monokai Extended Light"
 alias R='R --no-save --no-restore-data'
 alias r=radian
 alias icat='kitty +kitten icat'
+alias ssh='kitty +kitten ssh'
 export VISUAL=vim
 export EDITOR="${VISUAL}"
