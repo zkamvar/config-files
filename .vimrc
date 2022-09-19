@@ -109,6 +109,12 @@ vnoremap K :m '<-2<cr>gv=gv
 " https://stackoverflow.com/a/4824781/2752888
 set backupdir=~/.vim/tmp//
 set directory=~/.vim/tmp//
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.qmd set filetype=markdown.pandoc
+    au! BufNewFile,BufFilePre,BufRead *.Rmd set filetype=markdown.pandoc
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+    au! BufNewFile,BufFilePre,BufRead *.markdown set filetype=markdown.pandoc
+augroup END
 
 " Copy to clipboard
 " https://stackoverflow.com/a/15971506/2752888
