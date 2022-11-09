@@ -1,4 +1,4 @@
-# comment comment comment
+# no comment
 local({
   r <- getOption("repos")
   r <- r[!names(r) %in% c("RSPM", "CRAN")]
