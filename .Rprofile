@@ -38,6 +38,8 @@ local({
   options(HTTPUserAgent = HUA)
   options(editor        = "nvim")
 
+  options(reprex.html_preview = FALSE)
+
   options(usethis.full_name   = my_name)
   options(usethis.description = desc)
   options(usethis.protocol    = "https")
