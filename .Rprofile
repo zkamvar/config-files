@@ -9,13 +9,13 @@ local({
     carpentries = "https://carpentries.r-universe.dev",
     r)
   # Set the default HTTP user agent
-  HUA = sprintf("R/%s R (%s)", 
-    getRversion(), 
+  HUA = sprintf("R/%s R (%s)",
+    getRversion(),
     paste(getRversion(), R.version["platform"], R.version["arch"], R.version["os"])
   )
   auth <- paste(
-    'person("Zhian N.", "Kamvar",', 
-    'email = "zkamvar@gmail.com",', 
+    'person("Zhian N.", "Kamvar",',
+    'email = "zkamvar@gmail.com",',
     'role = c("aut", "cre"),',
     'comment = c(ORCID = "0000-0003-1458-7108"))'
   )
@@ -54,7 +54,7 @@ local({
   #if (interactive()) {
   #  # based off of BrodieG's tinyverse version, but the notification has gotten
   #  # a bit noisy and cchecks seems to be fairly stable
-  #  # 
+  #  #
   #  # I've also made some modifications to cache based on email, not just
   #  # assuming that it's one person.
   #  #
@@ -81,8 +81,8 @@ local({
   #    cat(crayon::silver(sprintf("CRAN status updated: %s\n", tim)))
 
   #    cat(
-  #      crayon::silver$bold$underline(package), 
-  #      crayon::cyan$bold$underline$blurred("notes"),  
+  #      crayon::silver$bold$underline(package),
+  #      crayon::cyan$bold$underline$blurred("notes"),
   #      crayon::yellow$bold$underline$blurred("warnings"),
   #      crayon::red$bold$underline$blurred("errors"),
   #      crayon::silver$bold$underline$blurred("issues"),
@@ -138,7 +138,7 @@ local({
 
   #    if (cage > 1 && cage < cache.life) {
   #      extra <- sprintf(
-  #        "\ncached CRAN status (%s old).", 
+  #        "\ncached CRAN status (%s old).",
   #        format(round(cache.age))
   #      )
   #    } else {
@@ -191,27 +191,27 @@ local({
   #  #
   #  # This is necessary to provide a clean as possible environment
   #  # to_unload <- c(
-  #  #   "crayon", 
-  #  #   "cchecks", 
-  #  #   "parsedate", 
+  #  #   "crayon",
+  #  #   "cchecks",
+  #  #   "parsedate",
   #  #   "jsonlite",
-  #  #   "crul", 
-  #  #   "httpcode", 
-  #  #   "curl", 
+  #  #   "crul",
+  #  #   "httpcode",
+  #  #   "curl",
   #  #   "rematch2",
-  #  #   "tibble", 
-  #  #   "pkgconfig", 
-  #  #   "pillar", 
+  #  #   "tibble",
+  #  #   "pkgconfig",
+  #  #   "pillar",
   #  #   "callr",
   #  #   "processx",
   #  #   "ps",
-  #  #   "rlang", 
+  #  #   "rlang",
   #  #   "R6",
   #  #   NULL
   #  # )
   #  # for (package in to_unload) {
   #  #   unloadNamespace(asNamespace(package))
   #  # }
-    
+
   #}
 })

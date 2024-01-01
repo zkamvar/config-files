@@ -37,6 +37,12 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+" rust vim is the official plugin for rust
+Plug 'rust-lang/rust.vim'
+
+" webapi connection to help with rust playground
+Plug 'mattn/webapi-vim'
+
 " NvimR is the ESS of vim
 Plug 'jalvesaq/Nvim-R' ", {'branch': 'stable'}
 
@@ -120,8 +126,10 @@ augroup END
 " https://stackoverflow.com/a/15971506/2752888
 if has('mac')
   vnoremap <C-c> :w !pbcopy<CR><CR>
+  let g:rust_clip_command = 'pbcopy'
 else
   vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
+  let g:rust_clip_command = 'xclip -selection clipboard'
 endif
 
 " Use Ctrl+Space to do omnicompletion:
@@ -228,6 +236,9 @@ map <cr> :NERDTreeToggle<CR>
 " Show Hidden files
 let NERDTreeShowHidden=1
 
+" setings :: rust.vim plugin
+let g:rustfmt_autosave = 1
+
 " settings :: Nvim-R plugin
 " ===============================================
 " This searches if radian (an enhanced client for R) is installed
@@ -258,8 +269,9 @@ let R_min_editor_width = 80
 " set the working directory to be vim's working directory
 let R_nvim_wd = 1
 
-" make sure the console is at the bottom
+" control the size of the R console
 let R_rconsole_width = winwidth(0) / 2
+let R_rconsole_height = 10
 autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 
 " Don't expand a dataframe to show columns by default
