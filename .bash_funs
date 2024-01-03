@@ -92,41 +92,160 @@ function sRGBtoLIN () {
 }
 export -f sRGBtoLIN
 
+# 
 function vpn () {
 
-  switch="${1:-none}"
-  con="${2:-Seattle}"
+  local switch="${1:-none}"
+  local con="${2:-none}"
+  local active=$( vpn_active )
 
   # cli switching on of VPN: https://askubuntu.com/a/57409/853075
   # disabling ipv6 on linux: https://support.vyprvpn.com/hc/en-us/articles/360038553552-How-do-I-disable-IPv6-on-Linux-
   case "${switch}" in 
-
+    "none"|"list"|"help")
+      echo "Connect to a VPN network and disable IPv6 defaults"
+      echo "=================================================="
+      echo
+      echo "A lot of VPN managers do not support IPv6, which causes your IPv6"
+      echo "address to be exposed to entities like Google, so it's necessary"
+      echo "to disable the IPv6 defaults before turning on a VPN."
+      echo
+      echo "Use <https://test-ipv6.com/simple_test.html> to test that IPv6 is"
+      echo "disabled after turning on the VPN."
+      echo
+      echo "Usage:"
+      echo 
+      echo "vpn [on|off|list|help] [NAME]"
+      echo
+      echo "Arguments:"
+      echo 
+      echo "  on|off|list|help  turn the vpn on, off, or print help with"
+      echo "                    a list of available networks and exit"
+      echo "  NAME              name of the VPN to use"
+      echo 
+      echo "Examples:"
+      echo
+      echo '  vpn                  # Show a list of available VPN networks'
+      echo '  vpn on               # Interactively select a VPN network to activate'
+      echo '  vpn off              # Close the current VPN connection'
+      echo '  vpn on Seattle       # Turn on the Seattle VPN'
+      echo '  vpn on "South Korea" # Turn on the South Korea VPN'
+      echo
+      vpn_status
+      echo "----------- Available VPN networks -----------"
+      echo 
+      vpn_list | awk -F '  ' '{print NR") "$1}'
+      echo 
+      echo "-----------------------------------------------"
+      return 0
+      ;;
+    # Turning on the VPN we have to check that a connection is available
+    # choose_vpn will search the available connections and 
     "on")
-      echo "switching on"
+      con=$( vpn_choose "${con}" )
+      echo "Connecting to ${con} vpn..."
       sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1 \
       && sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1 \
       && sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=1
       nmcli con up id "${con}"
+      return 0
       ;;
 
     "off")
-      con=$(nmcli con show --active | grep vpn | awk -F' ' '{print $1}')
       sudo sysctl -w net.ipv6.conf.all.disable_ipv6=0 \
       && sudo sysctl -w net.ipv6.conf.default.disable_ipv6=0 \
       && sudo sysctl -w net.ipv6.conf.lo.disable_ipv6=0
-      if [ -z "${con}" ]
+      if [ -z "${active}" ]
       then
-        echo "not conntected to vpn"
+        echo "not connected to vpn"
         return 0
       else
-        echo "switching off ${con}"
-        nmcli con down id "${con}"
+        echo "switching off ${active} ..."
+        nmcli con down id "${active}"
+        return 0
       fi
       ;;
 
     *)
-      echo "unused: ${switch}"
+      echo "VPN command not found: ${switch}"
       ;;
   esac
 }
 export -f vpn
+
+# choose a specific VPN 
+function vpn_choose () {
+
+  local connections
+  local declared="${1:-none}"
+  # https://www.baeldung.com/linux/reading-output-into-array
+  readarray -t connections < <(vpn_list)
+
+  if containsElement "${declared}" "${connections[@]}"
+  then
+    echo "${declared}"
+    return 0
+  fi
+
+  # https://linuxize.com/post/bash-select/
+  select con in "${connections[@]}":
+  do
+    echo "${con}"
+    return 0
+  done
+
+}
+
+# List all the VPN connections
+vpn_list () {
+  nmcli -f NAME,TYPE con show \
+  | grep 'vpn\s*$' \
+  | awk -F '  ' '{print $1}'
+}
+
+# show the active connection name or fail 
+vpn_active () {
+  local active=$(nmcli -f NAME,TYPE con show --active \
+    | grep 'vpn\s*$' \
+    | awk -F'  ' '{print $1}'
+  )
+  if [[ $active != "" ]] 
+  then
+    echo "${active}"
+    return 0
+  fi
+  return 1
+}
+
+vpn_status () {
+  local __END="\033[00m"
+  local RED__="\033[0;31m"
+  local LBLUE__="\033[0;34m"
+  local LPURPLE__="\033[0;35m"
+  local active="${1}"
+  echo
+  if [[ -z "${active}" ]]
+    then
+      echo -e "VPN status: ${RED__}OFF${__END}"
+  else
+    echo -e "VPN status:   ${LBLUE__}ON${__END}"
+    echo -e "Connected to: ${LPURPLE__}${active}${__END}"
+  fi
+  echo
+
+}
+
+# https://stackoverflow.com/a/8574392
+# 
+# Returns success if the element exists in an array, a failure otherwise
+#
+# containsElement <element> <array>
+containsElement () {
+  set +e
+  local e match="$1"
+  shift
+  for e; do [[ "$e" == "$match" ]] && return 0; done
+  return 1
+}
+
+
