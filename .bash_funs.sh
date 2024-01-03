@@ -1,3 +1,4 @@
+#! /bin/env bash
 # Copy the bibtex entry for a given DOI
 #
 # example: 
@@ -48,23 +49,25 @@ export -f getnotes
 
 # set theme
 function theme() { 
-  kitty @ --to=$KITTY_LISTEN_ON kitten themes --dump-theme ${1} > ~/.config/kitty/current-theme.conf
-  kitty @ --to=$KITTY_LISTEN_ON set-colors --all ~/.config/kitty/current-theme.conf
+  kitty @ --to="${KITTY_LISTEN_ON}" kitten themes --dump-theme "${1}" > ~/.config/kitty/current-theme.conf
+  kitty @ --to="${KITTY_LISTEN_ON}" set-colors --all ~/.config/kitty/current-theme.conf
 }
 export -f theme
 
 function black_cat () {
-  local bg=$( kitty @ --to=$KITTY_LISTEN_ON get-colors | grep '^background' | awk '{print $2}' )
-  echo "$( luminance ${bg} ) > 0.228" | bc -l
+  local bg
+  bg=$( kitty @ --to="${KITTY_LISTEN_ON}" get-colors | grep '^background' | awk '{print $2}' )
+  echo "$( luminance "${bg}" ) > 0.228" | bc -l
 }
 export -f black_cat
 
 # https://stackoverflow.com/a/56678483/2752888
 function luminance () {
   local hex="${1/\#/}" # remove leading hash
-  local r=$( sRGBtoLIN ${hex:0:2} )
-  local g=$( sRGBtoLIN ${hex:2:2} )
-  local b=$( sRGBtoLIN ${hex:4:2} )
+  local r g b
+  r=$( sRGBtoLIN "${hex:0:2}" )
+  g=$( sRGBtoLIN "${hex:2:2}" )
+  b=$( sRGBtoLIN "${hex:4:2}" )
   echo "${r} * 0.2126 + ${g} * 0.7152 + ${b} * 0.0722" | bc -l
 }
 export -f luminance
@@ -74,9 +77,12 @@ function sRGBtoLIN () {
   # convert hex to decimal
   local in=$((16#${1}))
   # convert to fraction
-  local v=$( echo "${in}/255" | bc -l )
+  local v
+  v=$( echo "${in}/255" | bc -l )
   # linearize based on perception threshold.
-  if [ $( echo "${v} < 0.04045" | bc -l ) -eq 1 ]; then
+  local thresh
+  thresh=$( echo "${v} < 0.04045" | bc -l )
+  if [ "${thresh}" -eq 1 ]; then
      v=$(echo "${v}/12.92" | bc -l)
   else
      # bc gives a weird warning of "non-zero scale in exponent" when trying to
@@ -92,12 +98,13 @@ function sRGBtoLIN () {
 }
 export -f sRGBtoLIN
 
-# 
+# Provide an interface to toggle VPN on and off.
 function vpn () {
 
   local switch="${1:-none}"
   local con="${2:-none}"
-  local active=$( vpn_active )
+  local active
+  active=$( vpn_active )
 
   # cli switching on of VPN: https://askubuntu.com/a/57409/853075
   # disabling ipv6 on linux: https://support.vyprvpn.com/hc/en-us/articles/360038553552-How-do-I-disable-IPv6-on-Linux-
@@ -126,12 +133,12 @@ function vpn () {
       echo "Examples:"
       echo
       echo '  vpn                  # Show a list of available VPN networks'
-      echo '  vpn on               # Interactively select a VPN network to activate'
+      echo '  vpn on               # Select a VPN network to activate'
       echo '  vpn off              # Close the current VPN connection'
       echo '  vpn on Seattle       # Turn on the Seattle VPN'
       echo '  vpn on "South Korea" # Turn on the South Korea VPN'
       echo
-      vpn_status
+      vpn_status "${active}"
       echo "----------- Available VPN networks -----------"
       echo 
       vpn_list | awk -F '  ' '{print NR") "$1}'
@@ -205,7 +212,8 @@ vpn_list () {
 
 # show the active connection name or fail 
 vpn_active () {
-  local active=$(nmcli -f NAME,TYPE con show --active \
+  local active
+  active=$(nmcli -f NAME,TYPE con show --active \
     | grep 'vpn\s*$' \
     | awk -F'  ' '{print $1}'
   )
@@ -218,11 +226,11 @@ vpn_active () {
 }
 
 vpn_status () {
+  local active="${1}"
   local __END="\033[00m"
   local RED__="\033[0;31m"
   local LBLUE__="\033[0;34m"
   local LPURPLE__="\033[0;35m"
-  local active="${1}"
   echo
   if [[ -z "${active}" ]]
     then

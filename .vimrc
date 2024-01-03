@@ -37,6 +37,16 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+" Requirement for bash server
+Plug 'prabirshrestha/vim-lsp'
+if executable('bash-language-server')
+  au User lsp_setup call lsp#register_server({
+        \ 'name': 'bash-language-server',
+        \ 'cmd': {server_info->['bash-language-server', 'start']},
+        \ 'allowlist': ['sh', 'bash'],
+        \ })
+endif
+
 " rust vim is the official plugin for rust
 Plug 'rust-lang/rust.vim'
 
