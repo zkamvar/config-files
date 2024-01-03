@@ -1,4 +1,5 @@
-function color_my_prompt { local __user_and_host="\[\033[01;32m\]\u@\h"
+function color_my_prompt { 
+    local __user_and_host="\[\033[01;32m\]\u@\h"
     local __cur_location="\[\033[01m\]\t \w"
     local __git_branch='`git symbolic-ref HEAD --short 2> /dev/null | sed -E  s/^\(.+\)$/\(\\\\\1\)\/`'
     local __prompt_tail="$"
@@ -11,10 +12,12 @@ function color_my_prompt { local __user_and_host="\[\033[01;32m\]\u@\h"
     local LBLUE="\[\033[0;34m\]"
     local state
 
+    local git_status
+    local git_stash
     # Capture the output of the "git status" command.
-    local git_status="$(git status 2> /dev/null)"
+    git_status="$(git status 2> /dev/null)"
     # Counting how many stashes exist
-    local git_stash="$(git stash list 2> /dev/null | wc -l)"
+    git_stash="$(git stash list 2> /dev/null | wc -l)"
 
     # Set color based on clean/staged/dirty.
     if [[ ${git_status} =~ "othing to commit" ]]; then
@@ -30,9 +33,9 @@ function color_my_prompt { local __user_and_host="\[\033[01;32m\]\u@\h"
 
     # add marker for origin status with number of commits ahead (+) or behind (-)
     if [[ ${git_status} =~ "branch is ahead of" ]]; then
-        sym="[+"${sym}"]"
+        sym="[+${sym}]"
     elif [[ ${git_status} =~ "branch is behind" ]]; then
-        sym="[-"${sym}"]"
+        sym="[-${sym}]"
     elif [[ ${git_status} =~ "HEAD detached at" ]]; then
         __git_branch="$(echo ${git_status} | sed -E 's/HEAD detached at ([^ ]+).*$/(🙃HEAD @ \1)/' 2> /dev/null)"
         sym=""
