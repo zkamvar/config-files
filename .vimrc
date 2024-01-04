@@ -46,6 +46,13 @@ if executable('bash-language-server')
         \ 'allowlist': ['sh', 'bash'],
         \ })
 endif
+if executable('rustup')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rust-analyzer',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rust-analyzer']},
+        \ 'allowlist': ['rust'],
+        \ })
+endif
 
 " rust vim is the official plugin for rust
 Plug 'rust-lang/rust.vim'
