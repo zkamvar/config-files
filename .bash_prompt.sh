@@ -14,6 +14,10 @@ function color_my_prompt {
     local git_stash
     local git_branch
     git_branch=$(git symbolic-ref HEAD --short 2> /dev/null)
+    if [[ -n "${git_branch}" ]]
+    then
+      git_branch="(${git_branch})"
+    fi
     # Capture the output of the "git status" command.
     git_status="$(git status 2> /dev/null)"
     # Counting how many stashes exist
@@ -50,7 +54,7 @@ function color_my_prompt {
         stash="{📦${git_stash}}"
     fi
 
-    export PS1="${__cur_location}\n${state}(${git_branch})${sym}${stash}${__last_color}${__prompt_tail} "
+    export PS1="${__cur_location}\n${state}${git_branch}${sym}${stash}${__last_color}${__prompt_tail} "
 }
 # Tell bash to execute this function just before displaying its prompt.
 PROMPT_COMMAND=color_my_prompt
