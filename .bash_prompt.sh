@@ -35,7 +35,11 @@ function color_my_prompt {
 
     # collect the number of commits ahead or behind origin
     local sym
-    sym=$(echo "${git_status}" | sed -E 's/.*by[[:blank:]]([0-9]*)[[:blank:]]commit.*/\1/' | grep '[0-9]' 2> /dev/null)
+    sym=$(echo "${git_status}" \
+      | tr -d '\n' \
+      | sed -E 's/^.*by[[:blank:]]([0-9]*)[[:blank:]]commit.*$/\1/' \
+      | grep '[0-9]' 2> /dev/null
+    )
 
     # add marker for origin status with number of commits ahead (+) or behind (-)
     if [[ ${git_status} =~ "branch is ahead of" ]]; then
@@ -43,7 +47,10 @@ function color_my_prompt {
     elif [[ ${git_status} =~ "branch is behind" ]]; then
         sym="[-${sym}]"
     elif [[ ${git_status} =~ "HEAD detached at" ]]; then
-        git_branch=$(echo "${git_status}" | sed -E 's/HEAD detached at ([^ ]+).*$/(🙃HEAD @ \1)/' 2> /dev/null)
+        git_branch=$(echo "${git_status}" \
+          | tr -d '\n' \
+          | sed -E 's/HEAD detached at ([^ ]+).*$/(🙃HEAD @ \1)/' 2> /dev/null
+        )
         sym=""
     else
         sym=""
