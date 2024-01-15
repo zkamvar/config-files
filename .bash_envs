@@ -5,3 +5,4 @@ alias icat='kitty +kitten icat'
 alias ssh='kitty +kitten ssh'
 export VISUAL=vim
 export EDITOR="${VISUAL}"
+export GLFW_IM_MODULE=ibus

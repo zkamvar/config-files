@@ -50,6 +50,11 @@ export -f getnotes
 # set theme
 function theme() { 
   kitty +kitten themes
+  if [[ $(black_cat) -eq 0 ]]; then
+    export BAT_THEME="Zenburn"
+  else
+    export BAT_THEME="Monokai Extended Light"
+  fi
 }
 export -f theme
 
