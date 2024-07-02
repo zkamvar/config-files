@@ -260,4 +260,8 @@ containsElement () {
   return 1
 }
 
+function wifirestart() {
+  sudo systemctl restart NetworkManager
+}
 
+export -f wifirestart
