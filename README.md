@@ -47,6 +47,8 @@ With this in mind, I have set up my vim to be very similar and have copied over
 pieces of the `.vimrc` into separate files under the `vim-lua/` folder and will
 be manually converting them. 
 
+To use the lua filters, you need to symlink the lua files into `~/.config/nvim/lua/`
+
 ## .gitconfig
 
 To use the .gitconfig in your own .gitconfig, use the `[include]` directive:
