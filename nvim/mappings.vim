@@ -1,6 +1,6 @@
 " To change the hellacious CTRL-W to a much more wrist-friendly alternative
 " https://vi.stackexchange.com/a/3729/18729
-:nnoremap <Leader>w <C-w>
+nnoremap <Leader>w <C-w>
 " Give me a testthat snippet
 autocmd Filetype r :iabbrev tt <CR>test_that("", {<CR><CR>})<CR><UP><UP><UP><esc>wll
 " Move visual selection
