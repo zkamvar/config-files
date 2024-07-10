@@ -96,68 +96,68 @@ let NERDTreeShowHidden=1
 " setings :: rust.vim plugin
 let g:rustfmt_autosave = 1
 
-" settings :: Nvim-R plugin
-" ===============================================
-" This searches if radian (an enhanced client for R) is installed
-" https://github.com/randy3k/radian
-if executable('radian')
-  let R_app = "radian"
-  let R_cmd = "R"
-  let R_hl_term = 0
-  let R_args = []
-  let R_bracketed_paste = 1
-else
-  " Default arguments on start
-  let R_args = ['--no-save', '--no-restore']
-endif
+"" settings :: Nvim-R plugin
+"" ===============================================
+"" This searches if radian (an enhanced client for R) is installed
+"" https://github.com/randy3k/radian
+"if executable('radian')
+"  let R_app = "radian"
+"  let R_cmd = "R"
+"  let R_hl_term = 0
+"  let R_args = []
+"  let R_bracketed_paste = 1
+"else
+"  " Default arguments on start
+"  let R_args = ['--no-save', '--no-restore']
+"endif
 
-" Let me have my snake case :}~~<
-let R_assign = 0
+"" Let me have my snake case :}~~<
+"let R_assign = 0
 
-" R output is highlighted with current colorscheme
-let g:rout_follow_colorscheme = 1
-"
-" R commands in R output are highlighted
-let g:Rout_more_colors = 1
+"" R output is highlighted with current colorscheme
+"let g:rout_follow_colorscheme = 1
+""
+"" R commands in R output are highlighted
+"let g:Rout_more_colors = 1
 
-" set a minimum source editor width
-let R_min_editor_width = 80
+"" set a minimum source editor width
+"let R_min_editor_width = 80
 
-" set the working directory to be vim's working directory
-let R_nvim_wd = 1
+"" set the working directory to be vim's working directory
+"let R_nvim_wd = 1
 
-" control the size of the R console
-let R_rconsole_width = winwidth(0) / 2
-let R_rconsole_height = 10
-autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
+"" control the size of the R console
+"let R_rconsole_width = winwidth(0) / 2
+"let R_rconsole_height = 10
+"autocmd VimResized * let R_rconsole_width = winwidth(0) / 2
 
-" Don't expand a dataframe to show columns by default
-let R_objbr_opendf = 0
+"" Don't expand a dataframe to show columns by default
+"let R_objbr_opendf = 0
 
-" disable annoying arg indent
-let r_indent_align_args = 0
+"" disable annoying arg indent
+"let r_indent_align_args = 0
 
-" Press the space bar to send lines and selection to R console
-vmap <Space> <Plug>RDSendSelection
-nmap <Space> <Plug>RDSendLine
+"" Press the space bar to send lines and selection to R console
+"vmap <Space> <Plug>RDSendSelection
+"nmap <Space> <Plug>RDSendLine
 
-" Switch between file and test
-function! SwitchTestBuddy()
-  let f = expand('%:t')
-  if expand('%:p:h:t') == 'testthat'
-    execute ':edit R/'..substitute(f, 'test-', '', '')
-  else
-    execute ':edit tests/testthat/test-'..f
-  endif
-endfunction
+"" Switch between file and test
+"function! SwitchTestBuddy()
+"  let f = expand('%:t')
+"  if expand('%:p:h:t') == 'testthat'
+"    execute ':edit R/'..substitute(f, 'test-', '', '')
+"  else
+"    execute ':edit tests/testthat/test-'..f
+"  endif
+"endfunction
 
-" Mappings for devtools vim
-map <c-L> :RLoadPackage<CR>
-map <c-D> :RDocumentPackage<CR>
-map <c-T> :RTestPackage<CR>
-map <tab> :call devtools#test_file()<CR>
-map <c-O> :call SwitchTestBuddy()<CR>
-map <c-E> :RCheckPackage<CR>
+"" Mappings for devtools vim
+"map <c-L> :RLoadPackage<CR>
+"map <c-D> :RDocumentPackage<CR>
+"map <c-T> :RTestPackage<CR>
+"map <tab> :call devtools#test_file()<CR>
+"map <c-O> :call SwitchTestBuddy()<CR>
+"map <c-E> :RCheckPackage<CR>
 
 " Grep options
 :let Grep_Skip_Dirs = '.git .Rproj.user'

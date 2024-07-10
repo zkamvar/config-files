@@ -61,7 +61,12 @@ Plug 'rust-lang/rust.vim'
 Plug 'mattn/webapi-vim'
 
 " NvimR is the ESS of vim
-Plug 'jalvesaq/Nvim-R' ", {'branch': 'stable'}
+" Plug 'jalvesaq/Nvim-R' ", {'branch': 'stable'}
+Plug 'R-Nvim/R.Nvim', {'branch': 'main'}
+Plug 'R-nvim/cmp-r', {'branch': 'main'}
+Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 
 " Plugin to work with Nvim-R that includes devtools
 Plug 'mllg/vim-devtools-plugin'
