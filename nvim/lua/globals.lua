@@ -3,8 +3,9 @@
 -- have vim save the backups in the /tmp/ directory, remembering the
 -- file path of the files
 -- https://stackoverflow.com/a/4824781/2752888
-vim.opt.backupdir="~/.vim/tmp//"
-vim.opt.directory="~/.vim/tmp//"
+home = os.getenv("HOME")
+vim.opt.backupdir=home.."/.vim/tmp//"
+vim.opt.directory=home.."/.vim/tmp//"
 vim.opt.hidden = true -- Allows for hidden buffers in the background
 vim.opt.cursorline = true-- Highlights the current line
 vim.opt.number=true-- Number all the lines relative to cursor
