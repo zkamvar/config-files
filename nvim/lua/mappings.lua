@@ -36,10 +36,10 @@ vim.api.nvim_create_autocmd({"Filetype"}, {
 })
 vim.cmd([[ 
 augroup pandoc_syntax 
-    au! BufNewFile,BufFilePre,BufRead *.qmd set filetype=markdown.pandoc 
-    au! BufNewFile,BufFilePre,BufRead *.Rmd set filetype=markdown.pandoc 
-    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc 
-    au! BufNewFile,BufFilePre,BufRead *.markdown set filetype=markdown.pandoc 
+    au! BufNewFile,BufFilePre,BufRead *.qmd set filetype=markdown 
+    au! BufNewFile,BufFilePre,BufRead *.Rmd set filetype=markdown 
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown 
+    au! BufNewFile,BufFilePre,BufRead *.markdown set filetype=markdown 
 augroup END 
 ]])
 
