@@ -3,6 +3,7 @@ alias R='R --no-save --no-restore-data'
 alias r=radian
 alias icat='kitty +kitten icat'
 alias ssh='kitty +kitten ssh'
+alias bat='batcat'
 export VISUAL=vim
 export EDITOR="${VISUAL}"
 export GLFW_IM_MODULE=ibus
