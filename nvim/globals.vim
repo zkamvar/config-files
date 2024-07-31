@@ -37,22 +37,22 @@ augroup pandoc_syntax
     au! BufNewFile,BufFilePre,BufRead *.markdown set filetype=markdown.pandoc
 augroup END
 
-" Copy to clipboard
-" https://stackoverflow.com/a/15971506/2752888
-if has('mac')
-  vnoremap <C-c> :w !pbcopy<CR><CR>
-  let g:rust_clip_command = 'pbcopy'
-else
-  vnoremap <C-C> :w !xclip -i -sel c<CR><CR>
-  let g:rust_clip_command = 'xclip -selection clipboard'
-endif
+" " Copy to clipboard
+" " https://stackoverflow.com/a/15971506/2752888
+" if has('mac')
+"   vnoremap <C-c> :w !pbcopy<CR><CR>
+"   let g:rust_clip_command = 'pbcopy'
+" else
+"   vnoremap <C-c> :w !xclip -i -sel c<CR><CR>
+"   let g:rust_clip_command = 'xclip -selection clipboard'
+" endif
 
-" Use Ctrl+Space to do omnicompletion:
-if has('nvim') || has('gui_running')
-  inoremap <C-Space> <C-x><C-o>
-else
-  inoremap <Nul> <C-x><C-o>
-endif
+" " Use Ctrl+Space to do omnicompletion:
+" if has('nvim') || has('gui_running')
+"   inoremap <C-Space> <C-x><C-o>
+" else
+"   inoremap <Nul> <C-x><C-o>
+" endif
 " https://stackoverflow.com/a/33358103/2752888
 set mouse=a
 

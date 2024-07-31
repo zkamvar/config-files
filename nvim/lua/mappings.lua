@@ -5,7 +5,7 @@ map('n', '<Leader>w', '<C-w>', {noremap = true})
 
 -- Copy to clipboard
 -- https://stackoverflow.com/a/15971506/2752888
-if vim.fn.has("mac") then
+if vim.fn.has("mac") ~= 0 then
   -- vnoremap <C-c> :w !pbcopy<CR><CR>
   map('v', '<C-c>', ':w !pbcopy<CR><CR>', {noremap = true})
   -- let g:rust_clip_command = 'pbcopy'
@@ -18,7 +18,7 @@ else
 end
 
 -- Use Ctrl+Space to do omnicompletion:
-if vim.fn.has("nvim") or vim.fn.has("gui_running") then
+if vim.fn.has("nvim") ~= 0 or vim.fn.has("gui_running") ~= 0 then
   -- inoremap <C-Space> <C-x><C-o>
   map('i', '<C-Space>', '<C-x><C-o>', {noremap = true})
 else
