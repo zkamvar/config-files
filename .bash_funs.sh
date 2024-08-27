@@ -265,3 +265,25 @@ function wifirestart() {
 }
 
 export -f wifirestart
+
+function fails() {
+  return 1
+}
+function succeeds() {
+  return 0
+}
+function ping_google() {
+  ping -q -c2 -W2 8.8.8.8 > /dev/null 2>&1 && return 0 || return 1
+}
+
+export -f checkwifi
+
+function checkwifi() {
+  if ping_google; then
+    echo "ok"
+  else
+    echo "broken"
+  fi
+}
+
+export -f checkwifi
