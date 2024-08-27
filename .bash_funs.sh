@@ -273,10 +273,19 @@ function succeeds() {
   return 0
 }
 function ping_google() {
-  ping -q -c2 -W2 8.8.8.8 > /dev/null 2>&1 && return 0 || return 1
+  echo -n > /dev/tcp/8.8.8.8/53 2>&1
 }
 
-export -f checkwifi
+export -f ping_google
+
+function cont_check_wifi() {
+  while true; do
+    sleep 5
+    ping_google && echo 0 || echo 1
+  done
+}
+
+export -f cont_check_wifi
 
 function checkwifi() {
   if ping_google; then
