@@ -53,7 +53,7 @@ To use the .gitconfig in your own .gitconfig, use the `[include]` directive:
 
 ```toml
 [include]
-  /path/to/config-files/.gitconfig
+  path = "/path/to/config-files/.gitconfig"
 ``` 
 
 ## kitty
@@ -66,7 +66,7 @@ I previously had some keyboard mappings to change colors in kitty, but it got
 more complicated with [the themes kitten](https://sw.kovidgoyal.net/kitty/kittens/themes/) 
 where it would modify the `kitty/kitty.conf` file to include the following lines:
 
-```
+```sh
 # BEGIN_KITTY_THEME
 # <theme name>
 include current-theme.conf
@@ -83,7 +83,7 @@ filters](https://stackoverflow.com/a/5272721/2752888) which would act on the
 
 In `.git/config`
 
-```
+```toml
 [filter "badkitty"]
   clean=sed '/BEGIN_KITTY_THEME/,/END_KITTY_THEME/ d'
   smudge=sed '/BEGIN_KITTY_THEME/,/END_KITTY_THEME/ d'
@@ -91,6 +91,6 @@ In `.git/config`
 
 In `.git/info/attributes`
 
-```
+```toml
 kitty/kitty.conf filter=badkitty
 ```
