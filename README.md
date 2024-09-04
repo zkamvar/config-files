@@ -52,9 +52,19 @@ directory to `~/.config/nvim/`.
 To use the .gitconfig in your own .gitconfig, use the `[include]` directive:
 
 ```toml
+[user]
+    name = "Your Name"
+    email = "your.name@example.com"
+    signingkey = "<your GPG or SSH signing key ID>"
 [include]
-  path = "/path/to/config-files/.gitconfig"
+    path = "/path/to/config-files/.gitconfig"
+[commit]
+    gpgSign = true
+[tag]
+    gpgSign = true
 ``` 
+
+
 
 ## kitty
 
