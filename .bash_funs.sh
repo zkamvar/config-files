@@ -187,10 +187,17 @@ export -f vpn
 # choose a specific VPN 
 function vpn_choose () {
 
+  if [[ "$OSTYPE" == "darwin"* ]]; then
+    echo "On MacOS. The VPN is much better here."
+    return 0
+  fi
   local connections
   local declared="${1:-none}"
   # https://www.baeldung.com/linux/reading-output-into-array
-  readarray -t connections < <(vpn_list)
+  # the eval here is to avoid MacOS complaining because readarray does not
+  # exist here. 
+  # Note that This may work: https://stackoverflow.com/a/23843116
+  eval "readarray -t connections < <(vpn_list)"
 
   if containsElement "${declared}" "${connections[@]}"
   then
@@ -213,6 +220,8 @@ vpn_list () {
   | grep 'vpn\s*$' \
   | awk -F '  ' '{print $1}'
 }
+
+export -f vpn_list
 
 # show the active connection name or fail 
 vpn_active () {
