@@ -6,7 +6,7 @@ local({
   r <- c(
     if (!on_mac) RSPM = "https://packagemanager.posit.co/all/__linux__/jammy/latest",
     CRAN = "https://cran.rstudio.com/",
-    carpentries = "https://carpentries.r-universe.dev",
+    hubverse = "https://hubverse-org.r-universe.dev",
     r)
   # Set the default HTTP user agent
   HUA = sprintf("R/%s R (%s)",
