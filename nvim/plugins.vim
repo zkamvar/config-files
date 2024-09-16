@@ -24,6 +24,9 @@ Plug 'tpope/vim-fugitive'
 " Paper color theme
 Plug 'NLKNguyen/papercolor-theme'
 
+" Catpuccin
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 

@@ -38,7 +38,7 @@ function! ChangeBackground()
   else
     set background=dark   " for the dark version of the theme
   endif
-  colorscheme PaperColor
+  colorscheme catppuccin
 
   try
     execute "AirlineRefresh"
