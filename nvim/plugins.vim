@@ -65,7 +65,11 @@ Plug 'mattn/webapi-vim'
 
 " NvimR is the ESS of vim
 " Plug 'jalvesaq/Nvim-R' ", {'branch': 'stable'}
-Plug 'R-Nvim/R.Nvim', {'branch': 'main'}
+" NOTE: 2025-01-09: R.Nvim started breaking today. Reverting to a previous
+" commit helped it stop breaking
+" Plug 'R-Nvim/R.Nvim', {'branch': 'main'}
+" Plug 'R-Nvim/R.Nvim', {'commit': '90d9226daa9bbafa33dc6416167a4db969699f20'}
+Plug 'R-Nvim/R.Nvim', {'commit': '75146be5d2c78575cb0aa69705d2ab4dbace3849'}
 Plug 'R-nvim/cmp-r', {'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
