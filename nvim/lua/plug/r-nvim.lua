@@ -5,7 +5,7 @@ local opts = {}
 -- ===============================================
 -- This searches if radian (an enhanced client for R) is installed
 -- https://github.com/randy3k/radian
-if vim.fn.executable('radian') then
+if vim.fn.executable('radian') == 1 then
   opts.R_app = "radian"
   opts.R_cmd = "R"
   opts.hl_term = false
