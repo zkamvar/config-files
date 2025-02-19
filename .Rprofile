@@ -4,7 +4,7 @@ local({
   r <- r[!names(r) %in% c("RSPM", "CRAN")]
   on_mac <- Sys.info()[["sysname"]] == "Darwin"
   r <- c(
-    if (!on_mac) RSPM = "https://packagemanager.posit.co/all/__linux__/jammy/latest",
+    if (!on_mac) RSPM = "https://packagemanager.posit.co/all/__linux__/noble/latest",
     CRAN = "https://cran.rstudio.com/",
     hubverse = "https://hubverse-org.r-universe.dev",
     r)
