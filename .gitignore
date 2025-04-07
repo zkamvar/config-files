@@ -5,6 +5,7 @@
 .Rhistory
 .Rdata
 .httr-oauth
+node_modules/
 kitty/ignore/*
 kitty/*bak
 kitty/current-theme.conf
