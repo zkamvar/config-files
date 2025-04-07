@@ -305,3 +305,8 @@ function checkwifi() {
 }
 
 export -f checkwifi
+
+function decolor() {
+  sed -E "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g" 
+}
+export -f decolor
