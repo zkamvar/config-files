@@ -9,3 +9,6 @@ node_modules/
 kitty/ignore/*
 kitty/*bak
 kitty/current-theme.conf
+*.o
+*.so
+dynamodb-local-metadata.json
