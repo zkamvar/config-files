@@ -5,7 +5,10 @@ local opts = {}
 -- ===============================================
 -- This searches if radian (an enhanced client for R) is installed
 -- https://github.com/randy3k/radian
-if vim.fn.executable('radian') == 1 then
+no_lockfile = vim.fn.filereadable('renv.lock') ~= 1
+no_profile = vim.fn.filereadable('.Rprofile') ~= 1
+okay_for_radian = no_lockfile or no_profile
+if vim.fn.executable('radian') == 1 and okay_for_radian then
   opts.R_app = "radian"
   opts.R_cmd = "R"
   opts.hl_term = false
