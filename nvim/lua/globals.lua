@@ -78,3 +78,12 @@ require("catppuccin").setup({
     },
 })
 
+-- https://gist.github.com/OXY2DEV/645c90df32095a8a397735d0be646452
+require("lsp_hover").setup({
+  ["^lua_ls"] = {
+    border_hl = "Special"
+  },
+  ["^rust"] = {
+    name = "🦀/RustLSP"
+  }
+});

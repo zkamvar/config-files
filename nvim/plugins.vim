@@ -73,6 +73,7 @@ Plug 'R-Nvim/R.Nvim', {'branch': 'main'}
 Plug 'R-nvim/cmp-r', {'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mrcjkb/rustaceanvim'
 
 
 " Plugin to work with Nvim-R that includes devtools
