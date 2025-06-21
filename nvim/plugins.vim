@@ -57,8 +57,9 @@ if executable('rustup')
         \ })
 endif
 
-" rust vim is the official plugin for rust
+" " rust vim is the official plugin for rust
 Plug 'rust-lang/rust.vim'
+Plug 'mrcjkb/rustaceanvim'
 
 " webapi connection to help with rust playground
 Plug 'mattn/webapi-vim'
@@ -73,7 +74,6 @@ Plug 'R-Nvim/R.Nvim', {'branch': 'main'}
 Plug 'R-nvim/cmp-r', {'branch': 'main'}
 Plug 'hrsh7th/nvim-cmp', {'branch': 'main'}
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'mrcjkb/rustaceanvim'
 
 
 " Plugin to work with Nvim-R that includes devtools
