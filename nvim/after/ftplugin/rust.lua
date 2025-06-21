@@ -16,3 +16,11 @@ vim.keymap.set(
   end,
   { silent = true, buffer = bufnr }
 )
+vim.keymap.set(
+  "n", 
+  "F",  -- Render diagnostics
+  function()
+    vim.cmd.RustLsp({'renderDiagnostic'})
+  end,
+  { silent = true, buffer = bufnr }
+)
