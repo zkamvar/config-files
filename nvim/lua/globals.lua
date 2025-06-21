@@ -87,3 +87,12 @@ require("lsp_hover").setup({
     name = "🦀/RustLSP"
   }
 });
+
+vim.lsp.config('rust_analyzer', {
+  -- Server-specific settings. See `:help lsp-quickstart`
+  settings = {
+    ['rust-analyzer'] = {
+    },
+  },
+})
+vim.lsp.inlay_hint.enable()
