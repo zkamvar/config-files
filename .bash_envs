@@ -7,3 +7,5 @@ alias ll='ls -l'
 export VISUAL=vim
 export EDITOR="${VISUAL}"
 export GLFW_IM_MODULE=ibus
+alias ibrew='arch -x86_64 /usr/local/homebrew/bin/brew'
+alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
