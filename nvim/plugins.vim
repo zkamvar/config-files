@@ -27,6 +27,9 @@ Plug 'NLKNguyen/papercolor-theme'
 " Catpuccin
 Plug 'catppuccin/nvim', { 'branch': 'main', 'as': 'catppuccin' }
 
+" Rose Pine
+Plug 'rose-pine/neovim', { 'branch': 'main', 'as': 'rose-pine' }
+
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -40,22 +43,24 @@ else
   Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
 endif
 
+Plug 'neovim/nvim-lspconfig'
+
 " Requirement for bash server
-Plug 'prabirshrestha/vim-lsp'
-if executable('bash-language-server')
-  au User lsp_setup call lsp#register_server({
-        \ 'name': 'bash-language-server',
-        \ 'cmd': {server_info->['bash-language-server', 'start']},
-        \ 'allowlist': ['sh', 'bash'],
-        \ })
-endif
-if executable('rustup')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rust-analyzer',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rust-analyzer']},
-        \ 'allowlist': ['rust'],
-        \ })
-endif
+" Plug 'prabirshrestha/vim-lsp'
+" if executable('bash-language-server')
+"   au User lsp_setup call lsp#register_server({
+"         \ 'name': 'bash-language-server',
+"         \ 'cmd': {server_info->['bash-language-server', 'start']},
+"         \ 'allowlist': ['sh', 'bash'],
+"         \ })
+" endif
+" if executable('rustup')
+"     au User lsp_setup call lsp#register_server({
+"         \ 'name': 'rust-analyzer',
+"         \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rust-analyzer']},
+"         \ 'allowlist': ['rust'],
+"         \ })
+" endif
 
 " " rust vim is the official plugin for rust
 Plug 'rust-lang/rust.vim'
