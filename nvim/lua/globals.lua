@@ -97,3 +97,15 @@ vim.lsp.config('rust_analyzer', {
   },
 })
 vim.lsp.inlay_hint.enable()
+vim.lsp.config('air', {
+    settings = {
+      on_attach = function(_, bufnr)
+          vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = bufnr,
+              callback = function()
+                  vim.lsp.buf.format()
+              end,
+          })
+      end,
+    }
+})

@@ -20,7 +20,7 @@ vim.keymap.set(
   "n", 
   "F",  -- Render diagnostics
   function()
-    vim.cmd.RustLsp({'renderDiagnostic'})
+    vim.cmd.RustLsp({'renderDiagnostic', 'current'})
   end,
   { silent = true, buffer = bufnr }
 )
