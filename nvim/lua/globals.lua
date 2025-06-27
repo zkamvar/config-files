@@ -85,7 +85,10 @@ require("lsp_hover").setup({
   },
   ["^rust"] = {
     name = "🦀/RustLSP"
-  }
+  },
+  ["^r_language"] = {
+    name = "R"
+  },
 });
 
 vim.lsp.enable("bashls")
