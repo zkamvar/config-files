@@ -24,7 +24,7 @@ opts.min_editor_width = 80
 -- set the working directory to be vim's working directory
 setwd = "nvim"
 -- control the size of the R console
-opts.rconsole_width = vim.fn.winwidth(0) / 2
+-- opts.rconsole_width = vim.fn.winwidth(0) / 2
 opts.rconsole_height = 10
 
 -- Chaos
