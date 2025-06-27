@@ -21,7 +21,7 @@ function color_my_prompt {
     # Capture the output of the "git status" command.
     git_status="$(git status 2> /dev/null)"
     # Counting how many stashes exist
-    git_stash="$(git stash list 2> /dev/null | wc -l)"
+    git_stash="$(git stash list 2> /dev/null | wc -l | xargs)"
 
     # Set color based on clean/staged/dirty.
     local state
