@@ -25,5 +25,6 @@
     --decorate \
     --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset) %C(bold cyan)(committed: %cD)%C(reset) %C(auto)%d%C(reset)%n''          %s%n''          %C(dim)- %an <%ae> %C(reset) %C(dim)(committer: %cn <%ce>)%C(reset)'
   pushb = !"git push --set-upstream $(git remote | head -n 1) $(git symbolic-ref HEAD --short)"
+  dangle = !"git fetch --prune && git branch -vv | grep ': gone]' | awk '{print $1}'"
 [core]
   excludesfile = "~/.gitignore"
