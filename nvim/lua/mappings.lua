@@ -2,6 +2,7 @@ local fun = require('functions')
 -- To change the hellacious CTRL-W to a much more wrist-friendly alternative
 -- https://vi.stackexchange.com/a/3729/18729
 map('n', '<Leader>w', '<C-w>', {noremap = true})
+vim.keymap.set('n', '<Leader>wd', vim.diagnostic.open_float)
 
 -- Copy to clipboard
 -- https://stackoverflow.com/a/15971506/2752888
