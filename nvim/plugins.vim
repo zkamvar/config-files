@@ -30,6 +30,9 @@ Plug 'catppuccin/nvim', { 'branch': 'main', 'as': 'catppuccin' }
 " Rose Pine
 Plug 'rose-pine/neovim', { 'branch': 'main', 'as': 'rose-pine' }
 
+" Noctis Lilac
+Plug 'talha-akram/noctis.nvim'
+
 " NERD tree will be loaded on the first invocation of NERDTreeToggle command
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 
