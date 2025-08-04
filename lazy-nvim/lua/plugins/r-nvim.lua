@@ -125,7 +125,7 @@ vim.g.rout_follow_colorscheme = 1
 -- R commands in R output are highlighted
 vim.g.Rout_more_colors = 1
 
-vim.cmd("autocmd VimResized * g:R_rconsole_width = winwidth(0) / 2")
+vim.cmd("autocmd VimResized * g:rconsole_width = winwidth(0) / 2")
 
 -- Don't expand a dataframe to show columns by default
 vim.g.R_objbr_opendf = 0
