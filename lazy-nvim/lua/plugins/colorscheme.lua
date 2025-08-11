@@ -7,7 +7,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "catppuccin",
       -- colorscheme = function()
       --   local is_dark = vim.o.background == "dark"
       --   if is_dark then
