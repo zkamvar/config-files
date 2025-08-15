@@ -26,6 +26,7 @@ opts.min_editor_width = 80
 setwd = "nvim"
 -- control the size of the R console
 opts.rconsole_width = math.floor(vim.fn.winwidth(0) / 2)
+  - vim.fn.getwininfo(vim.fn.win_getid())[1]["textoff"]
 opts.auto_quit = true
 -- opts.external_term = "kitty_split"
 opts.rconsole_height = 10
