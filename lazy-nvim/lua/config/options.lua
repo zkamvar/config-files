@@ -4,3 +4,4 @@
 vim.g.mapleader = "\\"
 vim.opt.colorcolumn = "81,101,121"
 vim.o.termguicolors = true
+vim.g.lazyvim_picker = "snacks"
