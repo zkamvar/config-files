@@ -9,11 +9,11 @@ return {
     opts = {
       set_dark_mode = function()
         vim.api.nvim_set_option_value("background", "dark", {})
-        vim.cmd("colorscheme noctis_viola")
+        vim.cmd("colorscheme rose-pine-moon")
       end,
       set_light_mode = function()
         vim.api.nvim_set_option_value("background", "light", {})
-        vim.cmd("colorscheme noctis_hibernus")
+        vim.cmd("colorscheme catppuccin-latte")
       end,
       update_interval = 3000,
       fallback = "light",
