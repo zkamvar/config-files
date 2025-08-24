@@ -28,6 +28,19 @@ return {
     },
   },
   {
+    "bringsrain/strawberry",
+  },
+  { -- <https://vimcolorschemes.com/mitch1000/backpack>
+    -- NOTE: has a light pink mode, but I haven't seen it
+    "mitch1000/backpack",
+    config = function()
+      vim.g.italicize_comments = 1
+      vim.g.backpack_italic = 1
+      vim.g.backpack_contrast_dark = "hard" -- soft hard medium
+      vim.g.backpack_contrast_light = "hard" -- soft hard medium
+    end,
+  },
+  {
     -- TODO: This prevents an issue where catppuccin updated their method for
     -- bufferline and it broke LazyVim. The author of LazyVim is on vacation,
     -- so this is a workaround until they get back.
