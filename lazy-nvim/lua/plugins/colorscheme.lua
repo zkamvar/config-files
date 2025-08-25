@@ -38,8 +38,8 @@ return {
     config = function()
       vim.g.italicize_comments = 1
       vim.g.backpack_italic = 1
-      vim.g.backpack_contrast_dark = "hard" -- soft hard medium
-      vim.g.backpack_contrast_light = "hard" -- soft hard medium
+      vim.g.backpack_contrast_dark = "medium" -- soft hard medium
+      vim.g.backpack_contrast_light = "medium" -- soft hard medium
     end,
   },
   {
