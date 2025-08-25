@@ -1,4 +1,6 @@
 -- Configure LazyVim to load dark or light mode scheme
+local fun = require("config/functions")
+
 return {
   { "rktjmp/lush.nvim" },
   { "EdenEast/nightfox.nvim" },
@@ -70,36 +72,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = function()
-        local colorschemes = {
-          "zenbones",
-          "rosebones",
-          "tokyobones",
-          "zenwritten",
-          "neobones",
-          -- "tokyonight",
-          -- "catppuccin",
-        }
-        -- stolen from randombones
-        if vim.g.colors_name then
-          vim.api.nvim_command([[highlight clear]])
-        end
-
-        local util = require("zenbones.util")
-
-        math.randomseed(os.time())
-        local index = math.random(#colorschemes)
-        local colorscheme = colorschemes[index]
-        vim.notify(
-          "colorscheme: " .. colorscheme,
-          "info",
-          { title = "plugins/colorscheme.lua" }
-        )
-
-        vim.g.colors_name = colorscheme
-
-        util.apply_colorscheme()
-      end,
+      colorscheme = znk_colorscheme,
     },
   },
 }
