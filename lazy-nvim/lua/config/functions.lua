@@ -8,7 +8,8 @@ function map(mode, combo, mapping, opts)
   vim.api.nvim_set_keymap(mode, combo, mapping, options)
 end
 
-function znk_colorscheme()
+function znk_colorscheme(type)
+  type = type or "light"
   local colorschemes = {
     "zenbones",
     "rosebones",
@@ -38,4 +39,13 @@ function znk_colorscheme()
   vim.g.colors_name = colorscheme
 
   util.apply_colorscheme()
+end
+function set_dark_mode()
+  vim.api.nvim_set_option_value("background", "dark", {})
+  vim.cmd("colorscheme rose-pine-moon")
+end
+
+function set_light_mode()
+  vim.api.nvim_set_option_value("background", "light", {})
+  vim.cmd("colorscheme catppuccin")
 end
