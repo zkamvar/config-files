@@ -8,20 +8,54 @@ function map(mode, combo, mapping, opts)
   vim.api.nvim_set_keymap(mode, combo, mapping, options)
 end
 
-function znk_colorscheme()
-  local colorschemes = {
+-- Choose between random selection of good colorschemes
+--
+-- @param type one of "dark" or "light" (defaults to "light")
+--
+-- This function will choose one of a pre-selected set of colorschemes at
+-- random and apply it. This builds off of the "randombones" colorscheme, but
+-- makes it safe for the current theme.
+function znk_colorscheme(type)
+  type = type or "light"
+  -- themes that auto-switch between dark and light mode
+  local hybrid = {
     { name = "zenbones" },
     { name = "rosebones" },
+    { name = "forestbones" },
     { name = "tokyobones" },
+    { name = "seoulbones" },
     { name = "zenwritten" },
     { name = "neobones" },
     { name = "tokyonight" },
     { name = "catppuccin" },
-    { name = "noctis_lilac", background = "light" },
-    -- { name = "noctis_viola", background = "dark" },
-    { name = "strawberry-light", background = "light" },
-    -- { name = "strawberry-dark", background = "dark" },
+    { name = "rose-pine" },
   }
+
+  -- themes that are specifically dark OR light
+  local themes = {
+    dark = {
+      { name = "noctis_viola", background = "dark" },
+      { name = "noctis_bordo", background = "dark" },
+      { name = "noctis_obscuro", background = "dark" },
+      { name = "noctis_uva", background = "dark" },
+      { name = "strawberry-dark", background = "dark" },
+      { name = "duckbones", background = "dark" },
+    },
+    light = {
+      { name = "backpack", background = "light" },
+      { name = "noctis_hibernus", background = "light" },
+      { name = "noctis_lilac", background = "light" },
+      { name = "noctis_lux", background = "light" },
+      { name = "strawberry-light", background = "light" },
+    },
+  }
+  -- depending on the choice, loop through the bg-specific themes and add them
+  -- to the table.
+  local colorschemes = hybrid
+  for _, v in ipairs(themes[type]) do
+    table.insert(colorschemes, v)
+  end
+
   -- stolen from randombones
   if vim.g.colors_name then
     vim.api.nvim_command([[highlight clear]])
@@ -78,17 +112,11 @@ function switch_variant(alts, background)
 end
 
 function set_dark_mode()
-  local alts = {
-    { noctis = { "noctis_viola" } },
-    { strawberry = { "strawberry-dark" } },
-  }
-  switch_variant(alts, "dark")
+  znk_colorscheme("dark")
+  vim.api.nvim_set_option_value("background", "dark", {})
 end
 
 function set_light_mode()
-  local alts = {
-    { noctis = { "noctis_lilac" } },
-    { strawberry = { "strawberry-light" } },
-  }
-  switch_variant(alts, "light")
+  znk_colorscheme("light")
+  vim.api.nvim_set_option_value("background", "light", {})
 end

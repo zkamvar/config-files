@@ -3,7 +3,6 @@ local fun = require("config/functions")
 
 return {
   { "rktjmp/lush.nvim" },
-  { "EdenEast/nightfox.nvim" },
   { "rose-pine/neovim", name = "rose-pine" },
   { "talha-akram/noctis.nvim" },
   {
@@ -30,10 +29,11 @@ return {
     },
   },
   {
+    -- NOTE: this is a really pretty pink theme that I like
     "bringsrain/strawberry",
   },
   { -- <https://vimcolorschemes.com/mitch1000/backpack>
-    -- NOTE: has a light pink mode, but I haven't seen it
+    -- NOTE: this theme throws errors and I may have to abandon it
     "mitch1000/backpack",
     config = function()
       vim.g.italicize_comments = 1
@@ -54,15 +54,15 @@ return {
       bufferline.get = bufferline.get or bufferline.get_theme
     end,
   },
-  -- {
-  --   "f-person/auto-dark-mode.nvim",
-  --   opts = {
-  --     set_dark_mode = set_dark_mode,
-  --     set_light_mode = set_light_mode,
-  --     update_interval = 3000,
-  --     fallback = "light",
-  --   },
-  -- },
+  {
+    "f-person/auto-dark-mode.nvim",
+    opts = {
+      set_dark_mode = set_dark_mode,
+      set_light_mode = set_light_mode,
+      update_interval = 3000,
+      fallback = "light",
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
