@@ -1,7 +1,9 @@
 [init]
   defaultBranch = "main"
 [pull]
-  rebase = "false"
+  rebase = false
+[rebase]
+  updateRefs = true
 [color]
   ui = true
 [alias]
