@@ -1,0 +1,6 @@
+gui:
+  switchTabsWithPanelJumpKeys: false
+git:
+  parseEmoji: true
+  truncateCopiedCommitHashesTo: 40
+quitOnTopLevelReturn: true
