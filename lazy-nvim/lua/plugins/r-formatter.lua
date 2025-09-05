@@ -9,7 +9,7 @@ return {
       }
       local current_dir = vim.fn.expand("%:p:h", true)
       local okay_to_fix = false
-      for dir in fixable_dirs do
+      for _, dir in pairs(fixable_dirs) do
         okay_to_fix = current_dir:match(dir) or okay_to_fix
       end
       if okay_to_fix then
