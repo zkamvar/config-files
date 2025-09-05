@@ -1,18 +1,14 @@
+local fun = require("config/functions")
 return {
   require("lspconfig").air.setup({
     on_attach = function(_, bufnr)
       -- Only run air format on projects that use air formatting.
-      -- NOTE: I could probably run a detector to see if an air.toml exists
-      local fixable_dirs = {
-        "getrecast/recast",
-        "poppr",
-      }
-      local current_dir = vim.fn.expand("%:p:h", true)
-      local okay_to_fix = false
-      for _, dir in pairs(fixable_dirs) do
-        okay_to_fix = current_dir:match(dir) or okay_to_fix
-      end
-      if okay_to_fix then
+      if file_exists("air.toml") then
+        vim.notify(
+          "this project is auto-formatted with air",
+          2, -- 1: DEBUG, 2: INFO
+          { title = "formatter" }
+        )
         vim.api.nvim_create_autocmd("BufWritePre", {
           buffer = bufnr,
           callback = function()

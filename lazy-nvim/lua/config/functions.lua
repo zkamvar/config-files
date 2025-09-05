@@ -120,3 +120,13 @@ function set_light_mode()
   znk_colorscheme("light")
   vim.api.nvim_set_option_value("background", "light", {})
 end
+
+function file_exists(name)
+  local f = io.open(name, "r")
+  if f ~= nil then
+    io.close(f)
+    return true
+  else
+    return false
+  end
+end
