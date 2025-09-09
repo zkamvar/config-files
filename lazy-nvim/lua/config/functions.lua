@@ -15,7 +15,8 @@ end
 -- This function will choose one of a pre-selected set of colorschemes at
 -- random and apply it. This builds off of the "randombones" colorscheme, but
 -- makes it safe for the current theme.
-function znk_colorscheme(type)
+function znk_colorscheme(type, verbose)
+  verbose = verbose or false
   type = type or "light"
   -- themes that auto-switch between dark and light mode
   local hybrid = {
@@ -66,11 +67,13 @@ function znk_colorscheme(type)
   math.randomseed(os.time())
   local index = math.random(#colorschemes)
   local colorscheme = colorschemes[index]
-  vim.notify(
-    "colorscheme: " .. colorscheme.name,
-    2, -- 1: DEBUG, 2: INFO
-    { title = "plugins/colorscheme.lua" }
-  )
+  if verbose then
+    vim.notify(
+      "colorscheme: " .. colorscheme.name,
+      2, -- 1: DEBUG, 2: INFO
+      { title = "plugins/colorscheme.lua" }
+    )
+  end
 
   vim.g.colors_name = colorscheme.name
 
@@ -90,7 +93,7 @@ end
 
 function get_current_base_theme()
   local theme = vim.g.colors_name or "unset"
-  string.gsub(theme, "[-_].*$", "", 1)
+  return string.gsub(theme, "[-_].*$", "", 1)
 end
 
 function switch_variant(alts, background)
@@ -112,12 +115,12 @@ function switch_variant(alts, background)
 end
 
 function set_dark_mode()
-  znk_colorscheme("dark")
+  znk_colorscheme("dark", true)
   vim.api.nvim_set_option_value("background", "dark", {})
 end
 
 function set_light_mode()
-  znk_colorscheme("light")
+  znk_colorscheme("light", true)
   vim.api.nvim_set_option_value("background", "light", {})
 end
 
