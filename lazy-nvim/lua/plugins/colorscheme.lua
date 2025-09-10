@@ -32,16 +32,16 @@ return {
     -- NOTE: this is a really pretty pink theme that I like
     "bringsrain/strawberry",
   },
-  { -- <https://vimcolorschemes.com/mitch1000/backpack>
-    -- NOTE: this theme throws errors and I may have to abandon it
-    "mitch1000/backpack",
-    config = function()
-      vim.g.italicize_comments = 1
-      vim.g.backpack_italic = 1
-      vim.g.backpack_contrast_dark = "medium" -- soft hard medium
-      vim.g.backpack_contrast_light = "medium" -- soft hard medium
-    end,
-  },
+  -- { -- <https://vimcolorschemes.com/mitch1000/backpack>
+  --   -- NOTE: this theme throws errors and I may have to abandon it
+  --   "mitch1000/backpack",
+  --   config = function()
+  --     vim.g.italicize_comments = 1
+  --     vim.g.backpack_italic = 1
+  --     vim.g.backpack_contrast_dark = "medium" -- soft hard medium
+  --     vim.g.backpack_contrast_light = "medium" -- soft hard medium
+  --   end,
+  -- },
   {
     -- TODO: This prevents an issue where catppuccin updated their method for
     -- bufferline and it broke LazyVim. The author of LazyVim is on vacation,

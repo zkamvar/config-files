@@ -43,7 +43,7 @@ function znk_colorscheme(type, verbose)
       { name = "duckbones", background = "dark" },
     },
     light = {
-      { name = "backpack", background = "light" },
+      -- { name = "backpack", background = "light" },
       { name = "noctis_hibernus", background = "light" },
       { name = "noctis_lilac", background = "light" },
       { name = "noctis_lux", background = "light" },
