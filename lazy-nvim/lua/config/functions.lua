@@ -24,7 +24,6 @@ function znk_colorscheme(type, verbose)
     { name = "rosebones" },
     { name = "forestbones" },
     { name = "tokyobones" },
-    { name = "zenwritten" },
     { name = "neobones" },
     { name = "tokyonight" },
     { name = "catppuccin" },
