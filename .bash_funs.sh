@@ -34,6 +34,14 @@ function concern { echo -n "ಠ_ಠ"          \
 | (xclip -selection clipboard 2> /dev/null || pbcopy); echo "ಠ_ಠ copied to your clipboard"; }
 export -f concern
 
+function noon {
+  echo -n "(눈_눈)" |
+    (xclip -selection clipboard 2>/dev/null || pbcopy)
+  echo "(눈_눈) copied to your clipboard"
+}
+export -f noon
+alias tired=noon
+
 # quick way to view csv files
 function csv { column -s, -t < "$1" | less -#2 -N -S; }
 export -f csv
