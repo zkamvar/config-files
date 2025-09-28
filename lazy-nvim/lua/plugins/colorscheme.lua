@@ -43,16 +43,8 @@ return {
   --   end,
   -- },
   {
-    -- TODO: This prevents an issue where catppuccin updated their method for
-    -- bufferline and it broke LazyVim. The author of LazyVim is on vacation,
-    -- so this is a workaround until they get back.
-    -- <https://github.com/LazyVim/LazyVim/pull/6354#issuecomment-3203793593>
     "catppuccin",
     optional = true,
-    opts = function()
-      local bufferline = require("catppuccin.groups.integrations.bufferline")
-      bufferline.get = bufferline.get or bufferline.get_theme
-    end,
   },
   {
     "f-person/auto-dark-mode.nvim",
