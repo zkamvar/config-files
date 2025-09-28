@@ -28,6 +28,7 @@ function znk_colorscheme(type, verbose)
     { name = "tokyonight" },
     { name = "catppuccin" },
     { name = "rose-pine" },
+    { name = "imas" },
   }
 
   -- themes that are specifically dark OR light
@@ -43,6 +44,8 @@ function znk_colorscheme(type, verbose)
     light = {
       -- { name = "backpack", background = "light" },
       { name = "noctis_hibernus", background = "light" },
+      { name = "cake", background = "light" },
+      { name = "quietlight", background = "light" },
       { name = "noctis_lilac", background = "light" },
       { name = "noctis_lux", background = "light" },
       { name = "strawberry-light", background = "light" },

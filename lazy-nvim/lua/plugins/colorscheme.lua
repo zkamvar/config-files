@@ -20,6 +20,11 @@ return {
     -- end
   },
   {
+    "GGalizzi/cake-vim",
+  },
+  { "machakann/vim-colorscheme-imas" },
+  { "aonemd/quietlight.vim" },
+  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
