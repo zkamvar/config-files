@@ -10,12 +10,28 @@ local no_lockfile = vim.fn.filereadable("renv.lock") ~= 1
 local no_profile = vim.fn.filereadable(".Rprofile") ~= 1
 local okay_for_radian = no_lockfile or no_profile
 if vim.fn.executable("radian") == 1 and okay_for_radian then
+  vim.notify(
+    "using radian; no lockfile: "
+      .. tostring(no_lockfile)
+      .. " no profile: "
+      .. tostring(no_profile),
+    1, -- 1: DEBUG, 2: INFO
+    { title = "radian" }
+  )
   opts.R_app = "radian"
   opts.R_cmd = "R"
   opts.hl_term = false
   opts.R_args = {}
   opts.bracketed_paste = true
 else
+  vim.notify(
+    "using base R; no lockfile: "
+      .. tostring(no_lockfile)
+      .. " no profile: "
+      .. tostring(no_profile),
+    1, -- 1: DEBUG, 2: INFO
+    { title = "R" }
+  )
   -- Default arguments on start
   opts.R_args = { "--no-save", "--no-restore" }
 end
