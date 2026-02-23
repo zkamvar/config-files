@@ -19,7 +19,9 @@ end
 set_autoformat({ "bash" }, true)
 set_autoformat({ "lua" }, true)
 set_autoformat({ "true" }, false)
+set_autoformat({ "cpp" }, false)
 set_autoformat({ "r" }, false)
+set_autoformat({ "yaml" }, false)
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local save_fold = augroup("Persistent Folds", { clear = true })
