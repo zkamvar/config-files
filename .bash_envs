@@ -9,3 +9,5 @@ export EDITOR="${VISUAL}"
 export GLFW_IM_MODULE=ibus
 alias ibrew='arch -x86_64 /usr/local/homebrew/bin/brew'
 alias mbrew='arch -arm64e /opt/homebrew/bin/brew'
+export DO_NOT_TRACK=true
+export GH_TELEMETRY=false
