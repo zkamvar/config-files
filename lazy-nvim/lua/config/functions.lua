@@ -20,11 +20,11 @@ function znk_colorscheme(type, verbose)
   type = type or "light"
   -- themes that auto-switch between dark and light mode
   local hybrid = {
-    { name = "zenbones" },
-    { name = "rosebones" },
-    { name = "forestbones" },
-    { name = "tokyobones" },
-    { name = "neobones" },
+    -- { name = "zenbones" },
+    -- { name = "rosebones" },
+    -- { name = "forestbones" },
+    -- { name = "tokyobones" },
+    -- { name = "neobones" },
     { name = "tokyonight" },
     { name = "catppuccin" },
     { name = "rose-pine" },
@@ -34,6 +34,7 @@ function znk_colorscheme(type, verbose)
   -- themes that are specifically dark OR light
   local themes = {
     dark = {
+      { name = "fairyfloss", background = "dark" },
       { name = "noctis_viola", background = "dark" },
       { name = "noctis_bordo", background = "dark" },
       { name = "noctis_obscuro", background = "dark" },

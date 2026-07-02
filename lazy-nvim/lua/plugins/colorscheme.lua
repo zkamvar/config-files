@@ -34,6 +34,9 @@ return {
     },
   },
   {
+    "tssm/fairyfloss.vim",
+  },
+  {
     -- NOTE: this is a really pretty pink theme that I like
     "bringsrain/strawberry",
   },
