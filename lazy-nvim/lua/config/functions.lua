@@ -20,6 +20,8 @@ function znk_colorscheme(type, verbose)
   type = type or "light"
   -- themes that auto-switch between dark and light mode
   local hybrid = {
+    -- NOTE: I am finding that the "bones" themes don't really have enough
+    -- contrast for me, so I am putting them to bed for now.
     -- { name = "zenbones" },
     -- { name = "rosebones" },
     -- { name = "forestbones" },
