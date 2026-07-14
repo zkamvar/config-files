@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# easily switch rig versions.
+#
+# Original version by Mauro Lepore. Modified by Zhian Kamvar to silence rig logs
+if [[ -z "$1" ]]; then
+  2>/dev/null rig ls
+else
+  VERSIONS=$(2>/dev/null rig ls | sed 's/*//' | sed 's/^ *//' | cut -d' ' -f1)
+  MATCH=$(echo "$VERSIONS" | grep -F "$1" | head -n1)
+  if [[ -n "$MATCH" ]]; then
+    echo "[INFO] Setting default to $MATCH"
+    rig default "$MATCH"
+  else
+    echo "[ERROR] No matching R version found for: $1" >&2
+    exit 1
+  fi
+fi

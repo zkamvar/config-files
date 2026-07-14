@@ -18,6 +18,9 @@ if vim.fn.executable("radian") == 1 and okay_for_radian then
     1, -- 1: DEBUG, 2: INFO
     { title = "radian" }
   )
+  -- TODO: find a way to use this for radian, because this will make it work.
+  -- DYLD_INSERT_LIBRARIES=/Library/Frameworks/R.framework/Versions/4.5-arm64/Resources/lib/libR.dylib radian
+  -- https://github.com/randy3k/radian/issues/439#issuecomment-2878105484
   opts.R_app = "radian"
   opts.R_cmd = "R"
   opts.hl_term = false
