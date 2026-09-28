@@ -8,7 +8,9 @@ local opts = {}
 -- https://github.com/randy3k/radian
 local no_lockfile = vim.fn.filereadable("renv.lock") ~= 1
 local no_profile = vim.fn.filereadable(".Rprofile") ~= 1
-local okay_for_radian = no_lockfile or no_profile
+-- HACK: I messed up my radian installation and now R is failing to start here
+-- Remove the `false` once I get it figured out -_-
+local okay_for_radian = false -- no_lockfile or no_profile
 if vim.fn.executable("radian") == 1 and okay_for_radian then
   vim.notify(
     "using radian; no lockfile: "
