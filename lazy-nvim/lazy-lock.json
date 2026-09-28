@@ -44,7 +44,7 @@
   "quietlight.vim": { "branch": "master", "commit": "61b00ed7c9678c2b23a5ceec8b895001f76af56b" },
   "render-markdown.nvim": { "branch": "main", "commit": "640a3ec6d538bad17c328be373c7cad0293d9589" },
   "rose-pine": { "branch": "main", "commit": "ff483051a47e27d84bdef47703538df1ed9f4a47" },
-  "rustaceanvim": { "branch": "master", "commit": "b25d186481624964523fee34f44c529b101c7435" },
+  "rustaceanvim": { "branch": "master", "commit": "f2f0c1231a5b019dbc1fd6dafac1751c878925a3" },
   "snacks.nvim": { "branch": "main", "commit": "882c996cf28183f4d63640de0b4c02ec886d01f2" },
   "strawberry": { "branch": "master", "commit": "78ee677b335af15639259c0343e970ac6f43cd2f" },
   "symbols.nvim": { "branch": "main", "commit": "b22e987c69749adcf1342e8040312e9318083d4a" },
